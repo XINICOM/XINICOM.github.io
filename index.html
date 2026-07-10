@@ -1,183 +1,173 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <title>BASE THEMES</title>
-<meta name="generator" content="Hexo 7.3.0"></head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>L Tailwind CSS</title>
+  <link rel="stylesheet" href="./output.css">
+</head>
 
-<body>
-  <!-- 网站名 -->
-  <h1>
-    <a href="/">XINICOM</a> |
-    <a href="/">Home</a> |
-    <a href="/archives">Archive</a>
-
-  </h1>
-  <!-- 主页 -->
-<ul>
-  
-  <li>
-    <a href="/2022/04/18/javascript_5/">
-      javascript_5
-    </a>
-    | 2022/04/18 07:42
-  </li>
-  
-  <li>
-    <a href="/2022/04/18/python_6/">
-      python_6
-    </a>
-    | 2022/04/18 06:32
-  </li>
-  
-  <li>
-    <a href="/2022/04/18/java_2/">
-      java_2
-    </a>
-    | 2022/04/18 03:57
-  </li>
-  
-  <li>
-    <a href="/2022/04/17/javascript_6/">
-      javascript_6
-    </a>
-    | 2022/04/17 23:10
-  </li>
-  
-  <li>
-    <a href="/2022/04/17/scala_5/">
-      scala_5
-    </a>
-    | 2022/04/17 05:15
-  </li>
-  
-  <li>
-    <a href="/2022/04/17/html_3/">
-      html_3
-    </a>
-    | 2022/04/17 02:15
-  </li>
-  
-  <li>
-    <a href="/2022/04/16/python_3/">
-      python_3
-    </a>
-    | 2022/04/16 06:02
-  </li>
-  
-  <li>
-    <a href="/2022/04/15/linux_4/">
-      linux_4
-    </a>
-    | 2022/04/15 19:45
-  </li>
-  
-  <li>
-    <a href="/2022/04/15/html_2/">
-      html_2
-    </a>
-    | 2022/04/15 10:57
-  </li>
-  
-  <li>
-    <a href="/2022/04/15/html_6/">
-      html_6
-    </a>
-    | 2022/04/15 04:27
-  </li>
-  
-</ul>
-
-<span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">&gt;</a>
-
-  <h3>categories</h3>
-  <ul>
-    
-    <li>
-      <a href="/categories/html/">
-        html
-      </a>
-    </li>
-    
-    <li>
-      <a href="/categories/Hexo/">
-        Hexo
-      </a>
-    </li>
-    
-    <li>
-      <a href="/categories/java/">
-        java
-      </a>
-    </li>
-    
-    <li>
-      <a href="/categories/javascript/">
-        javascript
-      </a>
-    </li>
-    
-    <li>
-      <a href="/categories/latex/">
-        latex
-      </a>
-    </li>
-    
-    <li>
-      <a href="/categories/linux/">
-        linux
-      </a>
-    </li>
-    
-    <li>
-      <a href="/categories/python/">
-        python
-      </a>
-    </li>
-    
-    <li>
-      <a href="/categories/scala/">
-        scala
-      </a>
-    </li>
-    
-  </ul>
-
-  <h3>tags</h3>
-  <ul>
-    
-    <li>
-      <a href="/tags/%E7%A4%BA%E4%BE%8B/">
-        示例
-      </a>
-    </li>
-    
-    <li>
-      <a href="/tags/demo/">
-        demo
-      </a>
-    </li>
-    
-    <li>
-      <a href="/tags/%E7%AC%94%E8%AE%B0/">
-        笔记
-      </a>
-    </li>
-    
-    <li>
-      <a href="/tags/%E5%BF%83%E5%BE%97/">
-        心得
-      </a>
-    </li>
-    
-    <li>
-      <a href="/tags/%E9%9A%8F%E7%AC%94/">
-        随笔
-      </a>
-    </li>
-    
-  </ul>
+<body class="antialiased dark:bg-black dark:text-white">
+  <main class="w-screen min-h-screen">
+    <!-- NAV BAR -->
+    <nav class="h-16 border-b border-gray-300 bg-white/70 dark:bg-black/70 backdrop-blur-sm
+                    fixed top-0 left-0 right-0">
+      <div class="max-w-7xl mx-auto h-full
+                        px-4
+                        flex justify-between items-center">
+        <div class="font-extrabold text-2xl font-mono">
+          <span class="cursor-pointer text-btn">XINICOM</span>
+          <span class="text-size-color font-sans font-normal">/</span>
+          <span class="font-medium">blog</span>
+        </div>
+        <div class="hidden lg:flex flex-row gap-8 text-lg capitalize font-sans">
+          <a href="#" class="text-btn">column</a>
+          <a href="#" class="text-btn">archieve</a>
+          <a href="#" class="text-btn">category</a>
+        </div>
+        <svg class="w-8 h-8 cursor-pointer block lg:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </div>
+    </nav>
+    <!-- HERO PAGE -->
+    <div class="border-b border-gray-300 w-full">
+      <div class="flex flex-row justify-center items-center gap-16
+                        h-screen max-w-6xl mx-auto px-4">
+        <!-- 个人图标？ -->
+        <div class="w-full lg:w-auto flex flex-col justify-start gap-y-6 lg:gap-y-8 pt-8 lg:pt-0">
+          <div class="text-6xl hidden lg:block">
+            <span class="font-bold">XINICOM's</span>
+            <span class="font-medium">Dev Blog</span>
+          </div>
+          <div class="font-sans mb-4 w-full
+                                flex flex-col lg:flex-row lg:hidden
+                                justify-start">
+            <div class="text-6xl font-bold
+                                max-lg:border-b max-lg:border-gray-300">
+              XINICOM's
+            </div>
+            <div class="text-4xl lg:text-6xl font-medium max-lg:text-right">
+              Dev Blog
+            </div>
+          </div>
+          <div class="font-sans text-xl lg:text-2xl
+                          text-gray-500 font-thin">
+            Sharing experiences in development.
+            <br>
+            Or just endlessly making bugs ~
+          </div>
+          <div class="flex flex-col lg:flex-row
+                            mt-4
+                            gap-2 lg:gap-8">
+            <a class="px-4 py-2
+                              font-mono font-bold
+                              border rounded-md border-black
+                              bg-black text-white
+                              text-center w-auto lg:w-52 h-auto
+                              hover:opacity-80 transition-colors duration-200" href="#">
+              Latest Post
+            </a>
+            <a class="px-4 py-2
+                              font-mono
+                              border rounded-md border-gray-500
+                              flex flex-row gap-4 items-center
+                              justify-center lg:justify-starts
+                              w-auto lg:w-52 h-auto
+                              hover:bg-black/5 transition-colors duration-200" href="https://github.com/XINICOM" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
+                <g clip-path="url(#logo-github__a)">
+                  <path fill="black" fill-rule="evenodd" d="M8 .13c-4.42 0-8 3.6-8 8.07 0 3.57 2.3 6.58 5.47 7.65.4.08.55-.17.55-.39L6 13.96c-2.23.49-2.7-.95-2.7-.95-.35-.94-.88-1.18-.88-1.18-.73-.5.05-.5.05-.5.8.06 1.23.84 1.23.84.72 1.22 1.87.88 2.33.66.07-.52.28-.88.5-1.08-1.77-.19-3.64-.88-3.64-3.98 0-.88.32-1.6.82-2.16-.07-.2-.35-1.03.08-2.14 0 0 .68-.21 2.2.83a7.7 7.7 0 0 1 4 0c1.53-1.04 2.2-.83 2.2-.83.45 1.11.17 1.94.09 2.14.52.56.82 1.28.82 2.16 0 3.1-1.87 3.78-3.66 3.98.3.26.54.74.54 1.5v2.21c0 .22.14.47.54.4A8.1 8.1 0 0 0 16 8.2 8 8 0 0 0 8 .13" clip-rule="evenodd" />
+                </g>
+                <defs>
+                  <clipPath id="logo-github__a">
+                    <rect width="16" height="16" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+              <div>GitHub Page</div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke="currentColor" class="w-4 h-4">
+                <path d="M7 7h10v10" />
+                <path d="M7 17L17 7" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- CONTENT BODY -->
+    <div class="h-auto w-full py-8 font-sans" style="background-color: #FAFAFA;">
+      <div class="content-body">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet asperiores cumque itaque reprehenderit,
+        commodi quisquam quaerat nisi soluta quidem blanditiis pariatur saepe totam adipisci error, maiores,
+        quas
+        harum dolor tempore neque sit. Nisi distinctio excepturi quaerat maxime dolorum qui accusamus, ratione
+        eos,
+        quidem vero dolorem numquam, libero ab? Saepe, at. Numquam, aspernatur repellendus maxime eveniet
+        expedita
+        recusandae consequuntur mollitia voluptatem voluptate sed, officiis repellat vel dolor sit deserunt,
+        illo
+        placeat. Iste, facere. Deleniti possimus beatae officiis maxime? Nam vero necessitatibus illo nisi neque
+        natus ducimus. Nulla tempore ea itaque necessitatibus iste tempora veritatis minima consequuntur? Sint
+        totam
+        in mollitia dolores asperiores quas aperiam quae! Iusto cupiditate repellat incidunt placeat ex
+        consectetur.
+        Animi, culpa pariatur. Aliquid accusantium provident sapiente suscipit consectetur dolorem voluptatem.
+        Voluptatem officia praesentium voluptates, provident quo fugiat ab dolores iusto quos necessitatibus,
+        dolorem et accusamus incidunt, consequatur sequi distinctio obcaecati. Quod vero cumque reprehenderit?
+        Sunt
+        odio animi, obcaecati repudiandae ipsam asperiores libero! Consequuntur mollitia est temporibus
+        repellendus
+        ratione aut, quo repudiandae, distinctio assumenda neque magnam tenetur architecto hic illum! Quisquam
+        rerum
+        culpa repellat eaque sint architecto ratione qui modi veritatis cumque! Aut enim nostrum deserunt nemo
+        omnis
+        earum magni, nihil praesentium incidunt expedita autem saepe vel tempora, aliquam veniam similique, nisi
+        ut
+        hic! Similique excepturi, provident totam eos itaque magni aliquid quis quas sint deleniti nam dolorum
+        aspernatur minus dicta, reprehenderit voluptatem incidunt vitae voluptas corrupti quisquam! Minus
+        cupiditate
+        recusandae saepe veritatis. Modi minima aut doloribus laborum id omnis illum voluptatum, eligendi
+        ducimus
+        asperiores iste corporis enim necessitatibus officiis veritatis. Iure totam, ea ipsa quisquam eum soluta
+        iste voluptatibus repellendus necessitatibus illum optio hic quam, est voluptates, magnam quasi facere
+        voluptas incidunt numquam quos! Ad nulla labore dolor inventore fuga illo quisquam similique, maxime
+        necessitatibus architecto porro maiores incidunt delectus quam, iure dicta provident assumenda hic
+        tenetur
+        alias? Corrupti at enim fugiat dolorem doloribus nesciunt natus sunt suscipit aut quis odit, nihil minus
+        hic
+        rem, aliquid voluptates officiis! Quos aspernatur, vero sint perferendis ut error maxime ea nulla alias
+        perspiciatis repudiandae deleniti, doloribus eveniet minima nemo animi placeat magni qui harum odio
+        voluptate nam quia? Libero accusantium autem corporis ducimus obcaecati, nesciunt similique eum
+        recusandae
+        ad, asperiores accusamus, odio debitis facere molestias error iusto officia culpa quae qui eligendi ipsa
+        neque nisi consequuntur? Numquam adipisci ipsum aliquam reiciendis asperiores error impedit eaque
+        eveniet
+        dignissimos! Eveniet inventore quos impedit, debitis vitae quis illum omnis est. Ut minima soluta nulla
+        molestias labore aperiam rerum magnam, voluptas velit natus esse nesciunt, ea reprehenderit nihil fuga
+        iure.
+        Eaque nesciunt fuga tempora consequatur suscipit reprehenderit dolorum, quis quod cumque sapiente quasi
+        iusto ipsum molestias aperiam, veritatis pariatur iure adipisci eum consectetur repudiandae. Dolorem,
+        dolores? Perferendis quia autem nulla in? Doloribus deserunt dolores laboriosam hic labore quisquam
+        expedita
+        suscipit nesciunt iusto corporis nemo cupiditate aspernatur repudiandae nam, officiis tempora eos quo.
+        Expedita, illo repellendus, saepe ipsa sint necessitatibus vero qui, recusandae cum architecto earum
+        molestiae eligendi! Expedita vero pariatur porro dolorum labore, repudiandae laboriosam vel. Minima
+        tenetur
+        quod vel. Reprehenderit atque eum ex laudantium?
+      </div>
+    </div>
+    <!-- BOTTOM -->
+    <div class="h-32 border-t border-gray-300 w-full">
+      <div class="max-w-7xl mx-auto h-full p-4
+                        flex flow-row justify-start items-center gap-4">
+        <div class="text-black/80 font-mono text-sm">
+          Copyright © 2026 XINICOM (YiCheng ZHOU).<br class="inline sm:hidden">All Rights Reserved.
+        </div>
+      </div>
+    </div>
+  </main>
 </body>
 
 </html>

@@ -6,37 +6,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>XINICOM's Dev Blog</title>
     <link rel="stylesheet" href="./output.css">
+    <script defer src="./navMenuBtn.js"></script>
+    <script defer src="./themeBtn.js"></script>
 </head>
 
-<body class="antialiased color-layer-0 color-text-primary">
-    <main class="w-screen min-h-screen">
+<!-- 区域 P-16
+章节 P-8
+段落 P-4 -->
+
+<body class="antialiased color-layer-0 color-text-primary overflow-auto">
+    <!-- NAVIGATION COMPONENT -->
+    <nav class="w-screen h-auto flex flex-col fixed" id="navcomponent">
         <!-- NAV BAR -->
-        <nav class="h-16 lg:h-20
-                    border-b border-border-light dark:border-border-dark border-opacity-100 bg-bg0-light/70 dark:bg-bg0-dark/70 backdrop-blur-md
-                    fixed top-0 left-0 right-0">
+        <header class="h-16 lg:h-20
+                    border-b color-border color-floating color-transparent
+                    fixed top-0 left-0 right-0" id="navbar">
             <div class="max-w-7xl mx-auto h-full px-4 
-                        flex justify-between items-center">
+                    flex justify-between items-center">
                 <div class="font-extrabold text-2xl lg:text-3xl font-mono">
                     XINICOM
                     <span class="highlight-color font-sans font-normal">/</span>
                     <span class="font-medium">blog</span>
                 </div>
-                <div class="hidden lg:flex flex-row gap-8 text-lg lg:text-xl capitalize font-sans">
-                    <a href="#" class="text-btn">column</a>
-                    <a href="#" class="text-btn">archieve</a>
-                    <a href="#" class="text-btn">category</a>
-                    <a href="#" class="text-btn">about</a>
+                <div class="hidden lg:flex flex-row gap-8 text-lg lg:text-xl capitalize font-sans tracking-wide">
+                    <a href="#" class="color-nav-btn">column</a>
+                    <a href="#" class="color-nav-btn">archieve</a>
+                    <a href="#" class="color-nav-btn">category</a>
+                    <a href="#" class="color-nav-btn">about</a>
                 </div>
-                <svg class="w-8 h-8 cursor-pointer block lg:hidden" fill="none" stroke="currentColor"
-                    viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
+                <button class="color-nav-btn block lg:hidden" id="navbtn">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" id="navicon">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
             </div>
-        </nav>
+        </header>
+        <!-- NAV MENU 此 classlist 受代码控制！-->
+        <div class="fixed h-full overflow-auto
+                    hidden flex-col justify-start lg:hidden 
+                    left-0 right-0 top-16
+                    color-floating color-transparent transition-colors duration-100
+                    font-sans" id="navmenu">
+            <div class="flex flex-col gap-3 p-8 w-full
+                        text-lg capitalize tracking-wide">
+                <a href="#" class="color-nav-btn">column</a>
+                <a href="#" class="color-nav-btn">archieve</a>
+                <a href="#" class="color-nav-btn">category</a>
+                <a href="#" class="color-nav-btn">about</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="w-screen min-h-screen">
         <!-- lg: HERO PAGE / block-->
         <div class="color-border border-b w-full">
             <div class="flex flex-row justify-center items-center gap-16
-            h-auto lg:h-screen mt-20 lg:mt-0 pb-10 lg:pb-4
+            h-auto lg:h-screen mt-20 lg:mt-0 pb-16 lg:pb-4
             max-w-6xl mx-auto px-8">
                 <!-- 个人图标？ -->
                 <div class="w-full lg:w-auto flex flex-col justify-start gap-y-6 lg:gap-y-8 pt-8 lg:pt-0">
@@ -112,7 +138,7 @@
             </div>
         </div>
         <!-- CONTENT BODY -->
-        <div class="h-auto w-full py-8 font-sans">
+        <div class="h-auto w-full py-16 font-sans">
             <div class="content-body color-text-content">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet asperiores cumque itaque reprehenderit,
                 commodi quisquam quaerat nisi soluta quidem blanditiis pariatur saepe totam adipisci error, maiores,
@@ -171,7 +197,7 @@
                 molestiae eligendi! Expedita vero pariatur porro dolorum labore, repudiandae laboriosam vel. Minima
                 tenetur
                 quod vel. Reprehenderit atque eum ex laudantium?
-                <hr class="my-4">
+                <hr class="my-8">
                 瞠身疾国者先仄范爱才倒司德逃，头赏松九非哥十国看，起后学姑动，导衣是妙学亲，中秦有范子投以未，国斯备有觉未没，对那鲜为国太脱，为明亡会楚这时俭来才活沫二败谭，解何是程极是羊老六的反总见县才沉流，没上也可则投和只山种，韩劝日法要并因则份得低月绪，惜名德的光云文大是自为，说以心说关打于，生瞠会非，快法年互后放派都是联于，德入名归狱穿倒求，来位我导找谢她同，人活啊勇孔劝远德感的夫相血骂，上何藏你重师太就，秦不成人变上君但切尘报我，念血了，价是了老，向君打者惜秦仁将而后谭婵说事以，狂性设太判整于他圣洪说日玉得，国书护学，可为蒲瞠风你关领地妙修和，种本二但大，是你谭张修气满，帝回为，同降肯仅秦谋评老名。
             </div>
         </div>
@@ -179,6 +205,7 @@
         <div class=" h-auto border-t color-border w-full">
             <div class="max-w-7xl w-auto mx-auto h-full py-8 px-4
                         flex flex-col md:flex-row justify-start md:justify-end items-center gap-8">
+                <!-- THEME BUTTON 此 classlist 受代码控制！ -->
                 <div class="flex flex-row gap-1 p-1 w-full md:w-auto
                                     border color-border rounded-full
                                     antialiased" role="radiogroup">
@@ -217,7 +244,7 @@
                         </span>
                     </button>
                 </div>
-                <script src="./themeBtn.js"></script>
+
             </div>
         </div>
         <!-- COPYRIGHT ANNOUNCEMENT -->

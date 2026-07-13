@@ -52,7 +52,7 @@ p {
 
 
 
-/* === PRE TEST === */
+/* PRE TO CODE BLOCK */
 .code-frame {
     @apply max-h-screen h-96 max-w-5xl mx-auto;
     @apply overflow-auto;
@@ -99,7 +99,6 @@ p {
 img {
     @apply border rounded-md lg:rounded-xl border-border-light dark:border-border-dark;
     @apply shadow-md dark:shadow-none max-w-3xl mx-auto my-4 w-full lg:w-auto;
-    @apply dark:opacity-90;
 }
 
 hr {
@@ -131,7 +130,7 @@ hr {
 }
 
 .color-floating.color-transparent {
-    @apply bg-bg0-light/70 dark:bg-bg0-dark/70 backdrop-blur-md;
+    @apply bg-bg0-light/75 dark:bg-bg0-dark/75 backdrop-blur-md;
 }
 
 @layer components {

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!DOCTYPE html>
+    <html lang="zh-CN">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>响应式导航栏 + 汉堡菜单</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                darkMode: 'class',
+            }
+        </script>
+    </head>
+
+    <body>
+
+        <!-- ===== 导航栏 ===== -->
+        <nav
+            class="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700 transition-colors duration-300">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-16">
+
+                    <!-- Logo -->
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg"></div>
+                        <span class="text-xl font-bold text-gray-800 dark:text-white">品牌</span>
+                    </div>
+
+                    <!-- ===== 桌面导航 (lg 以上显示) ===== -->
+                    <div class="hidden lg:flex items-center gap-8">
+                        <a href="#"
+                            class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition">首页</a>
+                        <a href="#"
+                            class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition">产品</a>
+                        <a href="#"
+                            class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition">关于</a>
+                        <a href="#"
+                            class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition">联系</a>
+                    </div>
+
+                    <!-- 右侧操作区 -->
+                    <div class="flex items-center gap-3">
+                        <!-- 夜间模式切换 -->
+                        <button id="themeToggle"
+                            class="p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+                            <span id="themeIcon">🌙</span>
+                        </button>
+
+                        <!-- ===== 汉堡按钮 (lg 以下显示) ===== -->
+                        <button id="menuToggle"
+                            class="lg:hidden p-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+                            aria-label="菜单">
+                            <svg id="hamburgerIcon" class="w-6 h-6" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ===== 移动端下拉菜单 (lg 以下显示) ===== -->
+            <div id="mobileMenu"
+                class="lg:hidden fixed inset-x-0 top-16 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-b border-gray-200 dark:border-gray-700 shadow-lg transition-all duration-300 ease-in-out overflow-hidden max-h-0 opacity-0 invisible">
+                <div class="flex flex-col py-4 px-6 space-y-3">
+                    <a href="#"
+                        class="block py-3 px-4 text-gray-700 dark:text-gray-200 hover:bg-blue-50 dark:hover:bg-blue-900/30 rounded-lg transition font-medium">首页</a>
+                    <a href="#"
+                        class="block py-3 px-4 text-gray-700 dark:text-gray-200 hover:bg-blue-50 dark:hover:bg-blue-900/30 rounded-lg transition font-medium">产品</a>
+                    <a href="#"
+                        class="block py-3 px-4 text-gray-700 dark:text-gray-200 hover:bg-blue-50 dark:hover:bg-blue-900/30 rounded-lg transition font-medium">关于</a>
+                    <a href="#"
+                        class="block py-3 px-4 text-gray-700 dark:text-gray-200 hover:bg-blue-50 dark:hover:bg-blue-900/30 rounded-lg transition font-medium">联系</a>
+                    <!-- 移动端登录按钮（可选） -->
+                    <div class="pt-3 border-t border-gray-200 dark:border-gray-700">
+                        <button
+                            class="w-full py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition font-medium">登录</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- ===== 遮罩层 ===== -->
+        <div id="overlay" class="fixed inset-0 bg-black/50 z-40 hidden transition-opacity duration-300 opacity-0"></div>
+
+        <!-- ===== 页面内容 ===== -->
+        <main
+            class="pt-20 min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300 flex items-center justify-center p-4">
+            <div class="max-w-2xl text-center">
+                <h1 class="text-4xl font-bold text-gray-800 dark:text-white">响应式导航</h1>
+                <p class="mt-4 text-gray-500 dark:text-gray-400">缩小浏览器窗口到 <strong
+                        class="text-blue-600 dark:text-blue-400">1024px</strong> 以下，查看汉堡菜单效果。</p>
+                <div class="mt-6 flex flex-wrap justify-center gap-3">
+                    <span
+                        class="px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm">✅
+                        汉堡菜单</span>
+                    <span
+                        class="px-4 py-2 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full text-sm">✅
+                        毛玻璃效果</span>
+                    <span
+                        class="px-4 py-2 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full text-sm">✅
+                        夜间模式</span>
+                </div>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis accusantium ipsa veniam? Aliquid modi
+                delectus excepturi minus, blanditiis nemo illum quidem? Sapiente, ab? Accusamus beatae deleniti atque
+                tempora laudantium consectetur doloribus eum reiciendis, eos fugit iste iure adipisci aut! Earum
+                voluptatum aspernatur, inventore alias dolores animi eum eaque obcaecati voluptate rerum atque tempora
+                nemo dicta saepe illum sit dolorem soluta ex. Culpa dolorem neque dicta, ad eveniet sunt doloribus esse
+                ut labore laboriosam, in at vel placeat beatae fugiat nesciunt dolores quo, asperiores autem ab
+                veritatis amet. Doloribus unde ipsa, quis mollitia architecto assumenda ab odit recusandae iste quisquam
+                magnam molestias. Minima vel saepe molestiae quasi iste rem, provident qui deserunt, veniam cumque nobis
+                iusto tempore nisi repellat sed corrupti ad obcaecati ea et? Neque minima debitis quidem harum officia
+                consectetur ea accusantium eligendi perferendis expedita repellat distinctio nihil vel commodi
+                praesentium atque tempore, blanditiis voluptatem possimus provident suscipit repudiandae vero earum
+                nobis! Accusamus blanditiis libero consequatur cumque? Earum veniam cumque ex quia dolores culpa nisi et
+                ducimus amet vitae quos totam iure veritatis, numquam eligendi obcaecati doloremque maiores. Ratione ea
+                quis temporibus doloremque nam possimus, dolorem veniam quas, voluptas voluptates praesentium? Nam,
+                magni sed eveniet ex a perspiciatis, ratione ipsam nisi, beatae possimus explicabo saepe ipsum ducimus
+                adipisci quae minima laborum quasi eligendi? Adipisci dolorem commodi aspernatur, voluptas suscipit
+                veritatis iusto velit unde inventore minima iure similique sequi numquam a blanditiis, sapiente
+                molestias ipsa officia nihil. Numquam, ipsa voluptate quas cupiditate necessitatibus est eius tenetur?
+                Hic accusamus aspernatur ad non sit pariatur alias esse reiciendis nesciunt? Consequuntur necessitatibus
+                suscipit ut praesentium delectus non. Saepe vel natus eaque laboriosam repudiandae, quibusdam nam
+                veritatis minus dignissimos dolor nihil quam, illum temporibus iste. Esse necessitatibus quo ullam
+                impedit amet magnam et ratione fuga. Fuga reprehenderit totam magni eum facilis ducimus velit.
+                Asperiores, numquam. Officiis sunt aliquid illo inventore quod recusandae. Cupiditate doloremque atque
+                vel possimus, natus accusantium a tempora ad facere exercitationem perferendis asperiores fugit officiis
+                praesentium quo perspiciatis repellendus nesciunt voluptates id, ipsa, saepe iste? Minus quam illum fuga
+                sapiente provident deserunt animi numquam, nam non itaque iste expedita accusamus iure rerum adipisci
+                recusandae, voluptate ipsa. Sit placeat ratione repellat ducimus ipsam autem, iure ullam minus
+                aspernatur consequuntur rem unde quasi atque? Eos, odit! Molestiae doloribus ipsa non maiores alias esse
+                maxime commodi saepe quibusdam nostrum ea ut, obcaecati sed quae necessitatibus tempora, omnis et
+                consequuntur molestias? Consequatur beatae sequi dicta.
+            </div>
+        </main>
+
+        <script>
+                (function () {
+                    'use strict';
+
+                    // ===== DOM 元素 =====
+                    const menuToggle = document.getElementById('menuToggle');
+                    const mobileMenu = document.getElementById('mobileMenu');
+                    const overlay = document.getElementById('overlay');
+                    const hamburgerIcon = document.getElementById('hamburgerIcon');
+                    const themeToggle = document.getElementById('themeToggle');
+                    const themeIcon = document.getElementById('themeIcon');
+                    const htmlElement = document.documentElement;
+
+                    // ===== 汉堡菜单状态 =====
+                    let isMenuOpen = false;
+
+                    // ===== 切换菜单 =====
+                    function toggleMenu() {
+                        isMenuOpen = !isMenuOpen;
+
+                        if (isMenuOpen) {
+                            // 打开菜单
+                            mobileMenu.classList.remove('max-h-0', 'opacity-0', 'invisible');
+                            mobileMenu.classList.add('max-h-96', 'opacity-100', 'visible');
+                            overlay.classList.remove('hidden');
+                            // 延迟添加 opacity 以触发过渡
+                            setTimeout(() => {
+                                overlay.classList.add('opacity-100');
+                            }, 10);
+                            // 汉堡图标变为 ✕
+                            hamburgerIcon.innerHTML = `
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    `;
+                            // 防止页面滚动
+                            document.body.style.overflow = 'hidden';
+                        } else {
+                            // 关闭菜单
+                            mobileMenu.classList.remove('max-h-96', 'opacity-100', 'visible');
+                            mobileMenu.classList.add('max-h-0', 'opacity-0', 'invisible');
+                            overlay.classList.remove('opacity-100');
+                            setTimeout(() => {
+                                overlay.classList.add('hidden');
+                            }, 300);
+                            // 汉堡图标恢复 ☰
+                            hamburgerIcon.innerHTML = `
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    `;
+                            document.body.style.overflow = '';
+                        }
+                    }
+
+                    // ===== 关闭菜单 =====
+                    function closeMenu() {
+                        if (isMenuOpen) toggleMenu();
+                    }
+
+                    // ===== 事件绑定 =====
+                    menuToggle.addEventListener('click', toggleMenu);
+                    overlay.addEventListener('click', closeMenu);
+
+                    // 点击菜单项自动关闭
+                    document.querySelectorAll('#mobileMenu a').forEach(link => {
+                        link.addEventListener('click', closeMenu);
+                    });
+
+                    // ESC 键关闭
+                    document.addEventListener('keydown', (e) => {
+                        if (e.key === 'Escape') closeMenu();
+                    });
+
+                    // 窗口 resize 到 lg 以上时自动关闭菜单
+                    window.addEventListener('resize', () => {
+                        if (window.innerWidth >= 1024 && isMenuOpen) {
+                            closeMenu();
+                        }
+                    });
+
+                    // ===== 夜间模式 =====
+                    const getStoredTheme = () => localStorage.getItem('theme') || 'light';
+
+                    function applyTheme(theme) {
+                        if (theme === 'dark') {
+                            htmlElement.classList.add('dark');
+                            themeIcon.textContent = '☀️';
+                        } else {
+                            htmlElement.classList.remove('dark');
+                            themeIcon.textContent = '🌙';
+                        }
+                        localStorage.setItem('theme', theme);
+                    }
+
+                    applyTheme(getStoredTheme());
+
+                    themeToggle.addEventListener('click', () => {
+                        const current = getStoredTheme();
+                        applyTheme(current === 'light' ? 'dark' : 'light');
+                    });
+
+                })();
+        </script>
+
+    </body>
+
+    </html>
+</body>
+
+</html>

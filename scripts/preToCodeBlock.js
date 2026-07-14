@@ -1,7 +1,7 @@
 document.querySelectorAll('pre[need-line-numbers="true"]').forEach((pre) => {
     const code = pre.querySelector("code");
     if (!code) return;
-    const lines = code.textContent.split("\n");
+    const lines = code.innerHTML.split("\n");
     if (lines[lines.length - 1] === "") lines.pop();
     const codeFrame = document.createElement("div");
     codeFrame.classList.add("code-frame");
@@ -26,7 +26,7 @@ document.querySelectorAll('pre[need-line-numbers="true"]').forEach((pre) => {
     lines.forEach((line, index) => {
         const span = document.createElement("div");
         span.classList.add("code-content-line");
-        span.textContent = line;
+        span.innerHTML = line;
         const num = document.createElement("div");
         num.classList.add("code-numbers-num");
         num.textContent = index + 1;

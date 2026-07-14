@@ -60,7 +60,7 @@ p {
     @apply bg-bg0-light dark:bg-code text-textContent-light dark:text-textContent-dark;
 }
 .code-view {
-    @apply py-2;
+    @apply pb-2;
     @apply text-sm font-mono;
     @apply grid gap-0;
     grid-template-columns: auto 1fr;
@@ -93,15 +93,16 @@ p {
     @apply bg-black/5 dark:bg-bg1-dark text-textPrimary-light dark:text-textPrimary-dark font-semibold;
 }
 
-/* todo */
+/* IMG IN DARKMODE */
 img {
     @apply border rounded-md lg:rounded-xl border-border-light dark:border-border-dark;
     @apply shadow-md dark:shadow-none max-w-3xl mx-auto my-4 w-full lg:w-auto;
+    @apply brightness-100;
     /* @apply dark:brightness-75; */
     /* @apply rounded-md lg:rounded-xl; */
 }
 img.dark-img-dim {
-    @apply dark:brightness-75;
+    @apply brightness-100 dark:brightness-75;
 }
 /* .img-wrapper {
     @apply mix-blend-multiply bg-border-light;

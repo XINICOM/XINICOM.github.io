@@ -1,127 +1,91 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>TEST ARTICLE 1</title>
-        <script defer src="./../../../../../scripts/navMenuBtn.js"></script>
-        <script defer src="./../../../../../scripts/themeBtn.js"></script>
-        <script defer src="./../../../../../scripts/preToCodeBlock.js"></script>
-        <link rel="stylesheet" href="./../../../../../output.css" />
-    </head>
 
-    <body class="antialiased color-layer-0 color-text-primary overflow-auto">
-        <!-- NAVIGATION COMPONENT -->
-        <nav class="w-screen h-auto flex flex-col fixed" id="navcomponent">
-            <!-- NAV BAR -->
-            <header
-                class="h-16 lg:h-20 border-b color-border color-floating color-transparent fixed top-0 left-0 right-0"
-                id="navbar"
-            >
-                <div
-                    class="max-w-7xl mx-auto h-full px-4 flex justify-between items-center"
-                >
-                    <div class="font-extrabold text-2xl lg:text-3xl font-mono">
-                        XINICOM
-                        <span class="highlight-color font-sans font-normal"
-                            >/</span
-                        >
-                        <a
-                            class="font-medium color-nav-btn"
-                            href="./../../../../../"
-                            >blog</a
-                        >
-                    </div>
-                    <div
-                        class="hidden lg:flex flex-row gap-8 text-lg lg:text-xl capitalize font-sans tracking-wide"
-                    >
-                        <a href="#" class="color-nav-btn">column</a>
-                        <a href="#" class="color-nav-btn">category</a>
-                        <a href="#" class="color-nav-btn">archieve</a>
-                        <a href="#" class="color-nav-btn">about</a>
-                    </div>
-                    <button class="color-nav-btn block lg:hidden" id="navbtn">
-                        <svg
-                            class="w-8 h-8"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                            id="navicon"
-                        >
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="1.4"
-                                d="M4 6h16M4 12h16M4 18h16"
-                            />
-                        </svg>
-                    </button>
-                </div>
-            </header>
-            <!-- NAV MENU 此 classlist 受代码控制！-->
-            <div
-                class="fixed h-full overflow-auto hidden flex-col justify-start lg:hidden left-0 right-0 top-16 color-floating color-transparent transition-colors duration-100 font-sans"
-                id="navmenu"
-            >
-                <div
-                    class="flex flex-col gap-3 p-8 w-full text-lg capitalize tracking-wide"
-                >
-                    <a href="#" class="color-nav-btn">column</a>
-                    <a href="#" class="color-nav-btn">category</a>
-                    <a href="#" class="color-nav-btn">archieve</a>
-                    <a href="#" class="color-nav-btn">about</a>
-                </div>
-            </div>
-        </nav>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TEST ARTICLE 1</title>
+  <script defer src="./../../../../../scripts/navMenuBtn.js"></script>
+  <script defer src="./../../../../../scripts/themeBtn.js"></script>
+  <script defer src="./../../../../../scripts/preToCodeBlock.js"></script>
+  <script defer src="./../../../../../scripts/imgWrapper.js"></script>
+  <link rel="stylesheet" href="./../../../../../output.css" />
+</head>
 
-        <main class="w-screen min-h-screen mt-16 lg:mt-20">
-            <article class="content-body color-text-content pb-16 pt-0">
-                <h1>前言</h1>
-                <p>
-                    相信大家在进行 Unity 开发中使用 <code>Sqlite</code>
-                    等数据库已经十分复杂了，而如果想要其打包出的平台上也可以使用就更麻烦了。下面为大家介绍一种，我实测有效的方法。
-                    <br />
-                    本人是新手，如有纰漏，敬请谅解并请在评论区指出，谢谢。
-                </p>
-                <h1>实践步骤</h1>
-                <h2>必要组件</h2>
-                <h3>Mono.Data.Sqlite.dll</h3>
-                <p>
-                    自己去unity编辑器的安装路径里面寻找和自己unity版本对应的文件。<br />
-                    我的文件放在：<code
-                        >${UnityEditor安装路径}\Data\MonoBleedingEdge\lib\mono\gac\Mono.Data.Sqlite\4.0.0.0__0738eb9f132ed756\Mono.Data.Sqlite.dll</code
-                    ><br />
-                    把该文件复制到你的项目下<code>Assets/Plugins</code>文件夹下面（没有该文件夹就自己创建一个）
-                </p>
-                <h3>System.Data.dll</h3>
-                <p>
-                    自己去unity编辑器的安装路径里面寻找和自己unity版本对应的文件。
-                    我的文件放在：<code
-                        >${UnityEditor安装路径}\Data\MonoBleedingEdge\lib\mono\unity_web\System.Data.dll</code
-                    >
-                    把该文件复制到你的项目下Assets/Plugins文件夹下面（没有该文件夹就自己创建一个）
-                </p>
-                <h3>sqlite3.dll</h3>
-                <p>
-                    这个文件要去<a href="https://www.sqlite.org/download.html"
-                        >SQLite官网</a
-                    >上下载，把以下显示的两个下载下来：
-                    <img src="./p1.png" alt="sqlite3.dll 文件" />
-                    把下载下来的两个压缩包解压后，就可以看到sqlite3.dll了，把该文件复制到你的项目下<code>Assets/Plugins</code>文件夹下面（没有该文件夹就自己创建一个）
-                </p>
-                <h3>libsqlite3.so</h3>
-                <p>
-                    这个在这篇文章的资源绑定中寻找（应该会显示在文章顶部）
-                    把该文件复制到你的项目下<code>Assets/Plugins/Android</code>文件夹下面（没有该文件夹就自己创建一个）
-                    最后你的项目下面应该有这些：
-                    <img src="./p2.png" alt="项目资源树" />
-                </p>
-                <h2>创建脚本</h2>
-                <p>新建 C# 脚本复制下面代码：</p>
-                <pre
-                    need-line-numbers="true"
-                    highlight-lines="1 3 5 9 10 29"
-                ><code class="language-csharp">public class DataBaseManager
+<body class="antialiased color-layer-0 color-text-primary overflow-auto">
+  <!-- NAVIGATION COMPONENT -->
+  <nav class="w-screen h-auto flex flex-col fixed z-10" id="navcomponent">
+    <!-- NAV BAR -->
+    <header class="h-16 lg:h-20 border-b color-border color-floating color-transparent fixed top-0 left-0 right-0" id="navbar">
+      <div class="max-w-7xl mx-auto h-full px-4 flex justify-between items-center">
+        <div class="font-extrabold text-2xl lg:text-3xl font-mono">
+          XINICOM
+          <span class="highlight-color font-sans font-normal">/</span>
+          <a class="font-medium color-nav-btn" href="./../../../../../">blog</a>
+        </div>
+        <div class="hidden lg:flex flex-row gap-8 text-lg lg:text-xl capitalize font-sans tracking-wide">
+          <a href="#" class="color-nav-btn">column</a>
+          <a href="#" class="color-nav-btn">category</a>
+          <a href="#" class="color-nav-btn">archieve</a>
+          <a href="#" class="color-nav-btn">about</a>
+        </div>
+        <button class="color-nav-btn block lg:hidden" id="navbtn">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" id="navicon">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </header>
+    <!-- NAV MENU 此 classlist 受代码控制！-->
+    <div class="fixed h-full overflow-auto hidden flex-col justify-start lg:hidden left-0 right-0 top-16 color-floating color-transparent transition-colors duration-100 font-sans" id="navmenu">
+      <div class="flex flex-col gap-3 p-8 w-full text-lg capitalize tracking-wide">
+        <a href="#" class="color-nav-btn">column</a>
+        <a href="#" class="color-nav-btn">category</a>
+        <a href="#" class="color-nav-btn">archieve</a>
+        <a href="#" class="color-nav-btn">about</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="w-screen min-h-screen mt-16 lg:mt-20">
+    <article class="content-body color-text-content pb-16 pt-0">
+      <h1>前言</h1>
+      <p>
+        相信大家在进行 Unity 开发中使用 <code>Sqlite</code>
+        等数据库已经十分复杂了，而如果想要其打包出的平台上也可以使用就更麻烦了。下面为大家介绍一种，我实测有效的方法。
+        <br />
+        本人是新手，如有纰漏，敬请谅解并请在评论区指出，谢谢。
+      </p>
+      <h1>实践步骤</h1>
+      <h2>必要组件</h2>
+      <h3>Mono.Data.Sqlite.dll</h3>
+      <p>
+        自己去unity编辑器的安装路径里面寻找和自己unity版本对应的文件。<br />
+        我的文件放在：<code>${UnityEditor安装路径}\Data\MonoBleedingEdge\lib\mono\gac\Mono.Data.Sqlite\4.0.0.0__0738eb9f132ed756\Mono.Data.Sqlite.dll</code><br />
+        把该文件复制到你的项目下<code>Assets/Plugins</code>文件夹下面（没有该文件夹就自己创建一个）
+      </p>
+      <h3>System.Data.dll</h3>
+      <p>
+        自己去unity编辑器的安装路径里面寻找和自己unity版本对应的文件。
+        我的文件放在：<code>${UnityEditor安装路径}\Data\MonoBleedingEdge\lib\mono\unity_web\System.Data.dll</code>
+        把该文件复制到你的项目下Assets/Plugins文件夹下面（没有该文件夹就自己创建一个）
+      </p>
+      <h3>sqlite3.dll</h3>
+      <p>
+        这个文件要去<a href="https://www.sqlite.org/download.html">SQLite官网</a>上下载，把以下显示的两个下载下来：
+        <img src="./p1.png" alt="sqlite3.dll 文件" />
+        把下载下来的两个压缩包解压后，就可以看到sqlite3.dll了，把该文件复制到你的项目下<code>Assets/Plugins</code>文件夹下面（没有该文件夹就自己创建一个）
+      </p>
+      <h3>libsqlite3.so</h3>
+      <p>
+        这个在这篇文章的资源绑定中寻找（应该会显示在文章顶部）
+        把该文件复制到你的项目下<code>Assets/Plugins/Android</code>文件夹下面（没有该文件夹就自己创建一个）
+        最后你的项目下面应该有这些：
+        <img src="./p2.png" alt="项目资源树" />
+      </p>
+      <h2>创建脚本</h2>
+      <p>新建 C# 脚本复制下面代码：</p>
+      <pre need-line-numbers="true" highlight-lines="1 3 5 9 10 29"><code class="language-csharp">public class DataBaseManager
 {
     /// &lt;summary&gt;
     /// 数据库链接
@@ -257,113 +221,47 @@
         return text;
     }
 }</code></pre>
-                <h2>创建Sqlite数据库文件</h2>
-                <p>
-                    这里我使用了<a href="https://sqlitestudio.pl/"
-                        >SQLiteStudio</a
-                    >，用它创建数据库，并把数据库文件放在你的项目下面的<code>Assets/StreamingAssets</code>文件夹下（没有该文件夹就自己创建一个）
-                </p>
-                <h1>使用案例</h1>
-                <p>
-                    首先调用<code>ConnectingDatabase(string name)</code
-                    >连接到数据库 之后使用<code
-                        >ExecuteQuery(string sqlQuery)</code
-                    >执行SQL命令 同时也可以使用<code
-                        >ReadFullTable_ToString(string tableName)</code
-                    >和<code>(string tableName)</code>快速调用整个表格
-                </p>
-            </article>
-        </main>
+      <h2>创建Sqlite数据库文件</h2>
+      <p>
+        这里我使用了<a href="https://sqlitestudio.pl/">SQLiteStudio</a>，用它创建数据库，并把数据库文件放在你的项目下面的<code>Assets/StreamingAssets</code>文件夹下（没有该文件夹就自己创建一个）
+      </p>
+      <h1>使用案例</h1>
+      <p>
+        首先调用<code>ConnectingDatabase(string name)</code>连接到数据库 之后使用<code>ExecuteQuery(string sqlQuery)</code>执行SQL命令 同时也可以使用<code>ReadFullTable_ToString(string tableName)</code>和<code>(string tableName)</code>快速调用整个表格
+      </p>
+    </article>
+  </main>
 
-        <!-- BOTTOM -->
-        <footer
-            class="pt-8 pb-4 px-4 h-auto border-t color-border w-full flex flex-col justify-center gap-8"
-        >
-            <div
-                class="max-w-7xl w-full mx-auto h-full flex flex-col md:flex-row justify-start md:justify-end items-center gap-8"
-            >
-                <!-- THEME BUTTON 此 classlist 受代码控制！ -->
-                <div
-                    class="flex flex-row gap-1 p-1 w-full md:w-auto border color-border rounded-full antialiased"
-                    role="radiogroup"
-                >
-                    <button
-                        class="theme-btn"
-                        role="radio"
-                        type="button"
-                        aria-checked="false"
-                        data-theme="light"
-                    >
-                        <svg
-                            viewBox="0 0 16 16"
-                            height="16"
-                            width="16"
-                            data-slot="geist-icon"
-                            style="color: currentcolor"
-                        >
-                            <path
-                                fill="currentColor"
-                                fill-rule="evenodd"
-                                d="M8.75.75V0h-1.5v2h1.5V.75M3.26 4.32l-.53-.53-.35-.35-.53-.53L2.9 1.85l.53.53.35.35.53.53zm8.42-1.06.53-.53.35-.35.53-.53 1.06 1.06-.53.53-.35.35-.53.53zM8 11.25a3.25 3.25 0 1 0 0-6.5 3.25 3.25 0 0 0 0 6.5m0 1.5a4.75 4.75 0 1 0 0-9.5 4.75 4.75 0 0 0 0 9.5m6-5.5h2v1.5h-2zm-13.25 0H0v1.5h2v-1.5H.75m1.62 5.32-.53.53 1.06 1.06.53-.53.35-.35.53-.53-1.06-1.06-.53.53zm10.2 1.06.53.53 1.06-1.06-.53-.53-.35-.35-.53-.53-1.06 1.06.53.53zM8.75 14v2h-1.5v-2z"
-                                clip-rule="evenodd"
-                            ></path>
-                        </svg>
-                        <span class="inline md:hidden"> Light </span>
-                    </button>
-                    <button
-                        class="theme-btn active"
-                        role="radio"
-                        type="button"
-                        aria-checked="true"
-                        data-theme="system"
-                    >
-                        <svg
-                            viewBox="0 0 16 16"
-                            height="16"
-                            width="16"
-                            data-slot="geist-icon"
-                            style="color: currentcolor"
-                        >
-                            <path
-                                fill="currentColor"
-                                fill-rule="evenodd"
-                                d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8.5a1 1 0 0 1-1 1H8.75v3h1.75V16h-5v-1.5h1.75v-3H1a1 1 0 0 1-1-1zm1.5.5V10h13V2.5z"
-                                clip-rule="evenodd"
-                            ></path>
-                        </svg>
-                        <span class="inline md:hidden"> System </span>
-                    </button>
-                    <button
-                        class="theme-btn"
-                        role="radio"
-                        type="button"
-                        aria-checked="false"
-                        data-theme="dark"
-                    >
-                        <svg
-                            viewBox="0 0 16 16"
-                            height="16"
-                            width="16"
-                            data-slot="geist-icon"
-                            style="color: currentcolor"
-                        >
-                            <path
-                                fill="currentColor"
-                                fill-rule="evenodd"
-                                d="M1.5 8a6 6 0 0 1 3.62-5.51 7 7 0 0 0 7.08 9.25A5.99 5.99 0 0 1 1.5 8M6.42.58a7.5 7.5 0 1 0 7.96 10.41l-.92-1.01a5.5 5.5 0 0 1-6.3-8.25zm6.83.42v1.75H15v1.5h-1.75V6h-1.5V4.25H10v-1.5h1.75V1z"
-                                clip-rule="evenodd"
-                            ></path>
-                        </svg>
-                        <span class="inline md:hidden"> Dark </span>
-                    </button>
-                </div>
-            </div>
-            <!-- COPYRIGHT ANNOUNCEMENT -->
-            <small
-                class="max-w-7xl w-auto mx-auto color-text-secondary font-mono text-xs text-center"
-            >
-                Copyright © 2026 XINICOM (YiCheng ZHOU). All Rights Reserved.
-            </small>
-        </footer>
-    </body>
+  <!-- BOTTOM -->
+  <footer class="pt-8 pb-4 px-4 h-auto border-t color-border w-full flex flex-col justify-center gap-8">
+    <div class="max-w-7xl w-full mx-auto h-full flex flex-col md:flex-row justify-start md:justify-end items-center gap-8">
+      <!-- THEME BUTTON 此 classlist 受代码控制！ -->
+      <div class="flex flex-row gap-1 p-1 w-full md:w-auto border color-border rounded-full antialiased" role="radiogroup">
+        <button class="theme-btn" role="radio" type="button" aria-checked="false" data-theme="light">
+          <svg viewBox="0 0 16 16" height="16" width="16" data-slot="geist-icon" style="color: currentcolor">
+            <path fill="currentColor" fill-rule="evenodd" d="M8.75.75V0h-1.5v2h1.5V.75M3.26 4.32l-.53-.53-.35-.35-.53-.53L2.9 1.85l.53.53.35.35.53.53zm8.42-1.06.53-.53.35-.35.53-.53 1.06 1.06-.53.53-.35.35-.53.53zM8 11.25a3.25 3.25 0 1 0 0-6.5 3.25 3.25 0 0 0 0 6.5m0 1.5a4.75 4.75 0 1 0 0-9.5 4.75 4.75 0 0 0 0 9.5m6-5.5h2v1.5h-2zm-13.25 0H0v1.5h2v-1.5H.75m1.62 5.32-.53.53 1.06 1.06.53-.53.35-.35.53-.53-1.06-1.06-.53.53zm10.2 1.06.53.53 1.06-1.06-.53-.53-.35-.35-.53-.53-1.06 1.06.53.53zM8.75 14v2h-1.5v-2z" clip-rule="evenodd"></path>
+          </svg>
+          <span class="inline md:hidden"> Light </span>
+        </button>
+        <button class="theme-btn active" role="radio" type="button" aria-checked="true" data-theme="system">
+          <svg viewBox="0 0 16 16" height="16" width="16" data-slot="geist-icon" style="color: currentcolor">
+            <path fill="currentColor" fill-rule="evenodd" d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8.5a1 1 0 0 1-1 1H8.75v3h1.75V16h-5v-1.5h1.75v-3H1a1 1 0 0 1-1-1zm1.5.5V10h13V2.5z" clip-rule="evenodd"></path>
+          </svg>
+          <span class="inline md:hidden"> System </span>
+        </button>
+        <button class="theme-btn" role="radio" type="button" aria-checked="false" data-theme="dark">
+          <svg viewBox="0 0 16 16" height="16" width="16" data-slot="geist-icon" style="color: currentcolor">
+            <path fill="currentColor" fill-rule="evenodd" d="M1.5 8a6 6 0 0 1 3.62-5.51 7 7 0 0 0 7.08 9.25A5.99 5.99 0 0 1 1.5 8M6.42.58a7.5 7.5 0 1 0 7.96 10.41l-.92-1.01a5.5 5.5 0 0 1-6.3-8.25zm6.83.42v1.75H15v1.5h-1.75V6h-1.5V4.25H10v-1.5h1.75V1z" clip-rule="evenodd"></path>
+          </svg>
+          <span class="inline md:hidden"> Dark </span>
+        </button>
+      </div>
+    </div>
+    <!-- COPYRIGHT ANNOUNCEMENT -->
+    <small class="max-w-7xl w-auto mx-auto color-text-secondary font-mono text-xs text-center">
+      Copyright © 2026 XINICOM (YiCheng ZHOU). All Rights Reserved.
+    </small>
+  </footer>
+</body>
+
 </html>

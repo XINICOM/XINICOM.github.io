@@ -618,6 +618,10 @@ video {
   top: 4rem;
 }
 
+.z-10 {
+  z-index: 10;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -1251,6 +1255,27 @@ img {
   --tw-shadow-colored: 0 0 #0000;
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
+
+img {
+  /* @apply dark:brightness-75; */
+  /* @apply rounded-md lg:rounded-xl; */
+}
+
+:is(:where(.dark) img.dark-img-dim) {
+  --tw-brightness: brightness(.75);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+/* .img-wrapper {
+    @apply mix-blend-multiply bg-border-light;
+    @apply border rounded-md lg:rounded-xl border-border-light dark:border-border-dark;
+    @apply shadow-md dark:shadow-none max-w-3xl mx-auto my-4 w-fit lg:w-auto;
+    @apply cursor-none pointer-events-none;
+} */
+
+/* img::after {
+    @apply bg-transparent dark:bg-black/60;
+} */
 
 hr {
   margin-top: 1rem;

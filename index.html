@@ -1,350 +1,212 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>XINICOM's Dev Blog</title>
-        <link rel="stylesheet" href="./output.css" />
-        <script defer src="./scripts/navMenuBtn.js"></script>
-        <script defer src="./scripts/themeBtn.js"></script>
-        <script defer src="./scripts/preToCodeBlock.js"></script>
-    </head>
 
-    <!-- 区域 P-16
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>XINICOM's Dev Blog</title>
+  <link rel="stylesheet" href="./output.css" />
+  <script defer src="./scripts/navMenuBtn.js"></script>
+  <script defer src="./scripts/themeBtn.js"></script>
+  <script defer src="./scripts/preToCodeBlock.js"></script>
+</head>
+
+<!-- 区域 P-16
 章节 P-8
 段落 P-4 -->
 
-    <body class="antialiased color-layer-0 color-text-primary overflow-auto">
-        <!-- NAVIGATION COMPONENT -->
-        <nav class="w-screen h-auto flex flex-col fixed" id="navcomponent">
-            <!-- NAV BAR -->
-            <header
-                class="h-16 lg:h-20 border-b color-border color-floating color-transparent fixed top-0 left-0 right-0"
-                id="navbar"
-            >
-                <div
-                    class="max-w-7xl mx-auto h-full px-4 flex justify-between items-center"
-                >
-                    <div class="font-extrabold text-2xl lg:text-3xl font-mono">
-                        XINICOM
-                        <span class="highlight-color font-sans font-normal"
-                            >/</span
-                        >
-                        <span class="font-medium">blog</span>
-                    </div>
-                    <div
-                        class="hidden lg:flex flex-row gap-8 text-lg lg:text-xl capitalize font-sans tracking-wide"
-                    >
-                        <a href="#" class="color-nav-btn">column</a>
-                        <a href="#" class="color-nav-btn">category</a>
-                        <a
-                            href="./articles/2026/07/12/testarticle1/"
-                            class="color-nav-btn"
-                            >archieve</a
-                        >
-                        <a href="#" class="color-nav-btn">about</a>
-                    </div>
-                    <button class="color-nav-btn block lg:hidden" id="navbtn">
-                        <svg
-                            class="w-8 h-8"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                            id="navicon"
-                        >
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="1.4"
-                                d="M4 6h16M4 12h16M4 18h16"
-                            />
-                        </svg>
-                    </button>
-                </div>
-            </header>
-            <!-- NAV MENU 此 classlist 受代码控制！-->
-            <div
-                class="fixed h-full overflow-auto hidden flex-col justify-start lg:hidden left-0 right-0 top-16 color-floating color-transparent transition-colors duration-100 font-sans"
-                id="navmenu"
-            >
-                <div
-                    class="flex flex-col gap-3 p-8 w-full text-lg capitalize tracking-wide"
-                >
-                    <a href="#" class="color-nav-btn">column</a>
-                    <a href="#" class="color-nav-btn">category</a>
-                    <a
-                        href="./articles/2026/07/12/testarticle1/"
-                        class="color-nav-btn"
-                        >archieve</a
-                    >
-                    <a href="#" class="color-nav-btn">about</a>
-                </div>
-            </div>
-        </nav>
+<body class="antialiased color-layer-0 color-text-primary overflow-auto">
+  <!-- NAVIGATION COMPONENT -->
+  <nav class="w-screen h-auto flex flex-col fixed z-10" id="navcomponent">
+    <!-- NAV BAR -->
+    <header class="h-16 lg:h-20 border-b color-border color-floating color-transparent fixed top-0 left-0 right-0" id="navbar">
+      <div class="max-w-7xl mx-auto h-full px-4 flex justify-between items-center">
+        <div class="font-extrabold text-2xl lg:text-3xl font-mono">
+          XINICOM
+          <span class="highlight-color font-sans font-normal">/</span>
+          <span class="font-medium">blog</span>
+        </div>
+        <div class="hidden lg:flex flex-row gap-8 text-lg lg:text-xl capitalize font-sans tracking-wide">
+          <a href="#" class="color-nav-btn">column</a>
+          <a href="#" class="color-nav-btn">category</a>
+          <a href="./articles/2026/07/12/testarticle1/" class="color-nav-btn">archieve</a>
+          <a href="#" class="color-nav-btn">about</a>
+        </div>
+        <button class="color-nav-btn block lg:hidden" id="navbtn">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" id="navicon">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </header>
+    <!-- NAV MENU 此 classlist 受代码控制！-->
+    <div class="fixed h-full overflow-auto hidden flex-col justify-start lg:hidden left-0 right-0 top-16 color-floating color-transparent transition-colors duration-100 font-sans" id="navmenu">
+      <div class="flex flex-col gap-3 p-8 w-full text-lg capitalize tracking-wide">
+        <a href="#" class="color-nav-btn">column</a>
+        <a href="#" class="color-nav-btn">category</a>
+        <a href="./articles/2026/07/12/testarticle1/" class="color-nav-btn">archieve</a>
+        <a href="#" class="color-nav-btn">about</a>
+      </div>
+    </div>
+  </nav>
 
-        <main class="w-screen min-h-screen">
-            <!-- lg: HERO PAGE / block-->
-            <div class="color-border border-b w-full">
-                <div
-                    class="flex flex-row justify-center items-center gap-16 h-auto lg:h-screen mt-20 lg:mt-0 pb-16 lg:pb-4 max-w-6xl mx-auto px-8"
-                >
-                    <!-- 个人图标？ -->
-                    <div
-                        class="w-full lg:w-auto flex flex-col justify-start gap-y-6 lg:gap-y-8 pt-8 lg:pt-0"
-                    >
-                        <div class="lg:text-8xl hidden lg:block">
-                            <span class="font-bold">XINICOM's</span>
-                            <span class="font-medium">Dev Blog</span>
-                        </div>
-                        <div
-                            class="font-sans mb-4 w-full flex flex-col lg:flex-row lg:hidden justify-start"
-                        >
-                            <div
-                                class="text-6xl font-bold max-lg:border-b-2 max-lg:border-textSecondary-light max-lg:dark:border-textSecondary-dark"
-                            >
-                                XINICOM's
-                            </div>
-                            <div
-                                class="text-4xl lg:text-6xl font-medium max-lg:text-right"
-                            >
-                                Dev Blog
-                            </div>
-                        </div>
-                        <div
-                            class="font-sans text-xl lg:text-2xl font-light color-text-primary"
-                        >
-                            Sharing experiences in development.
-                            <br />
-                            Or just endlessly making bugs ~
-                        </div>
-                        <div
-                            class="flex flex-col lg:flex-row mt-4 gap-4 lg:gap-8"
-                        >
-                            <!-- LATEST POST LINK -->
-                            <a
-                                class="px-4 py-2 font-mono font-bold border rounded-md border-bg0-dark bg-bg0-dark text-textPrimary-dark dark:border-bg0-light dark:bg-bg0-light dark:text-textPrimary-light text-center w-auto lg:w-52 h-auto hover:opacity-90 transition-colors duration-200 tracking-wider"
-                                href="#"
-                            >
-                                Latest Post
-                            </a>
-                            <!-- GITHUB PAGE LINK -->
-                            <a
-                                class="px-4 py-2 font-mono border rounded-md color-text-primary color-layer-0 border-textPrimary-light dark:border-textPrimary-dark hover:bg-black/5 dark:hover:bg-white/5 flex flex-row gap-4 items-center justify-center lg:justify-starts w-auto lg:w-52 h-auto transition-colors duration-200"
-                                href="https://github.com/XINICOM"
-                                target="_blank"
-                            >
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="16"
-                                    height="16"
-                                    fill="none"
-                                    viewBox="0 0 16 16"
-                                >
-                                    <g clip-path="url(#logo-github__a)">
-                                        <path
-                                            fill="currentColor"
-                                            fill-rule="evenodd"
-                                            d="M8 .13c-4.42 0-8 3.6-8 8.07 0 3.57 2.3 6.58 5.47 7.65.4.08.55-.17.55-.39L6 13.96c-2.23.49-2.7-.95-2.7-.95-.35-.94-.88-1.18-.88-1.18-.73-.5.05-.5.05-.5.8.06 1.23.84 1.23.84.72 1.22 1.87.88 2.33.66.07-.52.28-.88.5-1.08-1.77-.19-3.64-.88-3.64-3.98 0-.88.32-1.6.82-2.16-.07-.2-.35-1.03.08-2.14 0 0 .68-.21 2.2.83a7.7 7.7 0 0 1 4 0c1.53-1.04 2.2-.83 2.2-.83.45 1.11.17 1.94.09 2.14.52.56.82 1.28.82 2.16 0 3.1-1.87 3.78-3.66 3.98.3.26.54.74.54 1.5v2.21c0 .22.14.47.54.4A8.1 8.1 0 0 0 16 8.2 8 8 0 0 0 8 .13"
-                                            clip-rule="evenodd"
-                                        />
-                                    </g>
-                                    <defs>
-                                        <clipPath id="logo-github__a">
-                                            <rect
-                                                width="16"
-                                                height="16"
-                                                fill="white"
-                                            />
-                                        </clipPath>
-                                    </defs>
-                                </svg>
-                                <div>GitHub Page</div>
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="16"
-                                    height="16"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    stroke="currentColor"
-                                    class="w-4 h-4"
-                                >
-                                    <path d="M7 7h10v10" />
-                                    <path d="M7 17L17 7" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+  <main class="w-screen min-h-screen">
+    <!-- lg: HERO PAGE / block-->
+    <div class="color-border border-b w-full">
+      <div class="flex flex-row justify-center items-center gap-16 h-auto lg:h-screen mt-20 lg:mt-0 pb-16 lg:pb-4 max-w-6xl mx-auto px-8">
+        <!-- 个人图标？ -->
+        <div class="w-full lg:w-auto flex flex-col justify-start gap-y-6 lg:gap-y-8 pt-8 lg:pt-0">
+          <div class="lg:text-8xl hidden lg:block">
+            <span class="font-bold">XINICOM's</span>
+            <span class="font-medium">Dev Blog</span>
+          </div>
+          <div class="font-sans mb-4 w-full flex flex-col lg:flex-row lg:hidden justify-start">
+            <div class="text-6xl font-bold max-lg:border-b-2 max-lg:border-textSecondary-light max-lg:dark:border-textSecondary-dark">
+              XINICOM's
             </div>
-            <!-- CONTENT BODY -->
-            <div class="h-auto w-full py-16 font-sans">
-                <div class="content-body color-text-content">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Eveniet asperiores cumque itaque reprehenderit, commodi
-                    quisquam quaerat nisi soluta quidem blanditiis pariatur
-                    saepe totam adipisci error, maiores, quas harum dolor
-                    tempore neque sit. Nisi distinctio excepturi quaerat maxime
-                    dolorum qui accusamus, ratione eos, quidem vero dolorem
-                    numquam, libero ab? Saepe, at. Numquam, aspernatur
-                    repellendus maxime eveniet expedita recusandae consequuntur
-                    mollitia voluptatem voluptate sed, officiis repellat vel
-                    dolor sit deserunt, illo placeat. Iste, facere. Deleniti
-                    possimus beatae officiis maxime? Nam vero necessitatibus
-                    illo nisi neque natus ducimus. Nulla tempore ea itaque
-                    necessitatibus iste tempora veritatis minima consequuntur?
-                    Sint totam in mollitia dolores asperiores quas aperiam quae!
-                    Iusto cupiditate repellat incidunt placeat ex consectetur.
-                    Animi, culpa pariatur. Aliquid accusantium provident
-                    sapiente suscipit consectetur dolorem voluptatem. Voluptatem
-                    officia praesentium voluptates, provident quo fugiat ab
-                    dolores iusto quos necessitatibus, dolorem et accusamus
-                    incidunt, consequatur sequi distinctio obcaecati. Quod vero
-                    cumque reprehenderit? Sunt odio animi, obcaecati repudiandae
-                    ipsam asperiores libero! Consequuntur mollitia est
-                    temporibus repellendus ratione aut, quo repudiandae,
-                    distinctio assumenda neque magnam tenetur architecto hic
-                    illum! Quisquam rerum culpa repellat eaque sint architecto
-                    ratione qui modi veritatis cumque! Aut enim nostrum deserunt
-                    nemo omnis earum magni, nihil praesentium incidunt expedita
-                    autem saepe vel tempora, aliquam veniam similique, nisi ut
-                    hic! Similique excepturi, provident totam eos itaque magni
-                    aliquid quis quas sint deleniti nam dolorum aspernatur minus
-                    dicta, reprehenderit voluptatem incidunt vitae voluptas
-                    corrupti quisquam! Minus cupiditate recusandae saepe
-                    veritatis. Modi minima aut doloribus laborum id omnis illum
-                    voluptatum, eligendi ducimus asperiores iste corporis enim
-                    necessitatibus officiis veritatis. Iure totam, ea ipsa
-                    quisquam eum soluta iste voluptatibus repellendus
-                    necessitatibus illum optio hic quam, est voluptates, magnam
-                    quasi facere voluptas incidunt numquam quos! Ad nulla labore
-                    dolor inventore fuga illo quisquam similique, maxime
-                    necessitatibus architecto porro maiores incidunt delectus
-                    quam, iure dicta provident assumenda hic tenetur alias?
-                    Corrupti at enim fugiat dolorem doloribus nesciunt natus
-                    sunt suscipit aut quis odit, nihil minus hic rem, aliquid
-                    voluptates officiis! Quos aspernatur, vero sint perferendis
-                    ut error maxime ea nulla alias perspiciatis repudiandae
-                    deleniti, doloribus eveniet minima nemo animi placeat magni
-                    qui harum odio voluptate nam quia? Libero accusantium autem
-                    corporis ducimus obcaecati, nesciunt similique eum
-                    recusandae ad, asperiores accusamus, odio debitis facere
-                    molestias error iusto officia culpa quae qui eligendi ipsa
-                    neque nisi consequuntur? Numquam adipisci ipsum aliquam
-                    reiciendis asperiores error impedit eaque eveniet
-                    dignissimos! Eveniet inventore quos impedit, debitis vitae
-                    quis illum omnis est. Ut minima soluta nulla molestias
-                    labore aperiam rerum magnam, voluptas velit natus esse
-                    nesciunt, ea reprehenderit nihil fuga iure. Eaque nesciunt
-                    fuga tempora consequatur suscipit reprehenderit dolorum,
-                    quis quod cumque sapiente quasi iusto ipsum molestias
-                    aperiam, veritatis pariatur iure adipisci eum consectetur
-                    repudiandae. Dolorem, dolores? Perferendis quia autem nulla
-                    in? Doloribus deserunt dolores laboriosam hic labore
-                    quisquam expedita suscipit nesciunt iusto corporis nemo
-                    cupiditate aspernatur repudiandae nam, officiis tempora eos
-                    quo. Expedita, illo repellendus, saepe ipsa sint
-                    necessitatibus vero qui, recusandae cum architecto earum
-                    molestiae eligendi! Expedita vero pariatur porro dolorum
-                    labore, repudiandae laboriosam vel. Minima tenetur quod vel.
-                    Reprehenderit atque eum ex laudantium?
-                    <hr />
-                    瞠身疾国者先仄范爱才倒司德逃，头赏松九非哥十国看，起后学姑动，导衣是妙学亲，中秦有范子投以未，国斯备有觉未没，对那鲜为国太脱，为明亡会楚这时俭来才活沫二败谭，解何是程极是羊老六的反总见县才沉流，没上也可则投和只山种，韩劝日法要并因则份得低月绪，惜名德的光云文大是自为，说以心说关打于，生瞠会非，快法年互后放派都是联于，德入名归狱穿倒求，来位我导找谢她同，人活啊勇孔劝远德感的夫相血骂，上何藏你重师太就，秦不成人变上君但切尘报我，念血了，价是了老，向君打者惜秦仁将而后谭婵说事以，狂性设太判整于他圣洪说日玉得，国书护学，可为蒲瞠风你关领地妙修和，种本二但大，是你谭张修气满，帝回为，同降肯仅秦谋评老名。
-                </div>
+            <div class="text-4xl lg:text-6xl font-medium max-lg:text-right">
+              Dev Blog
             </div>
-        </main>
+          </div>
+          <div class="font-sans text-xl lg:text-2xl font-light color-text-primary">
+            Sharing experiences in development.
+            <br />
+            Or just endlessly making bugs ~
+          </div>
+          <div class="flex flex-col lg:flex-row mt-4 gap-4 lg:gap-8">
+            <!-- LATEST POST LINK -->
+            <a class="px-4 py-2 font-mono font-bold border rounded-md border-bg0-dark bg-bg0-dark text-textPrimary-dark dark:border-bg0-light dark:bg-bg0-light dark:text-textPrimary-light text-center w-auto lg:w-52 h-auto hover:opacity-90 transition-colors duration-200 tracking-wider" href="#">
+              Latest Post
+            </a>
+            <!-- GITHUB PAGE LINK -->
+            <a class="px-4 py-2 font-mono border rounded-md color-text-primary color-layer-0 border-textPrimary-light dark:border-textPrimary-dark hover:bg-black/5 dark:hover:bg-white/5 flex flex-row gap-4 items-center justify-center lg:justify-starts w-auto lg:w-52 h-auto transition-colors duration-200" href="https://github.com/XINICOM" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
+                <g clip-path="url(#logo-github__a)">
+                  <path fill="currentColor" fill-rule="evenodd" d="M8 .13c-4.42 0-8 3.6-8 8.07 0 3.57 2.3 6.58 5.47 7.65.4.08.55-.17.55-.39L6 13.96c-2.23.49-2.7-.95-2.7-.95-.35-.94-.88-1.18-.88-1.18-.73-.5.05-.5.05-.5.8.06 1.23.84 1.23.84.72 1.22 1.87.88 2.33.66.07-.52.28-.88.5-1.08-1.77-.19-3.64-.88-3.64-3.98 0-.88.32-1.6.82-2.16-.07-.2-.35-1.03.08-2.14 0 0 .68-.21 2.2.83a7.7 7.7 0 0 1 4 0c1.53-1.04 2.2-.83 2.2-.83.45 1.11.17 1.94.09 2.14.52.56.82 1.28.82 2.16 0 3.1-1.87 3.78-3.66 3.98.3.26.54.74.54 1.5v2.21c0 .22.14.47.54.4A8.1 8.1 0 0 0 16 8.2 8 8 0 0 0 8 .13" clip-rule="evenodd" />
+                </g>
+                <defs>
+                  <clipPath id="logo-github__a">
+                    <rect width="16" height="16" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+              <div>GitHub Page</div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke="currentColor" class="w-4 h-4">
+                <path d="M7 7h10v10" />
+                <path d="M7 17L17 7" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- CONTENT BODY -->
+    <div class="h-auto w-full py-16 font-sans">
+      <div class="content-body color-text-content">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Eveniet asperiores cumque itaque reprehenderit, commodi
+        quisquam quaerat nisi soluta quidem blanditiis pariatur
+        saepe totam adipisci error, maiores, quas harum dolor
+        tempore neque sit. Nisi distinctio excepturi quaerat maxime
+        dolorum qui accusamus, ratione eos, quidem vero dolorem
+        numquam, libero ab? Saepe, at. Numquam, aspernatur
+        repellendus maxime eveniet expedita recusandae consequuntur
+        mollitia voluptatem voluptate sed, officiis repellat vel
+        dolor sit deserunt, illo placeat. Iste, facere. Deleniti
+        possimus beatae officiis maxime? Nam vero necessitatibus
+        illo nisi neque natus ducimus. Nulla tempore ea itaque
+        necessitatibus iste tempora veritatis minima consequuntur?
+        Sint totam in mollitia dolores asperiores quas aperiam quae!
+        Iusto cupiditate repellat incidunt placeat ex consectetur.
+        Animi, culpa pariatur. Aliquid accusantium provident
+        sapiente suscipit consectetur dolorem voluptatem. Voluptatem
+        officia praesentium voluptates, provident quo fugiat ab
+        dolores iusto quos necessitatibus, dolorem et accusamus
+        incidunt, consequatur sequi distinctio obcaecati. Quod vero
+        cumque reprehenderit? Sunt odio animi, obcaecati repudiandae
+        ipsam asperiores libero! Consequuntur mollitia est
+        temporibus repellendus ratione aut, quo repudiandae,
+        distinctio assumenda neque magnam tenetur architecto hic
+        illum! Quisquam rerum culpa repellat eaque sint architecto
+        ratione qui modi veritatis cumque! Aut enim nostrum deserunt
+        nemo omnis earum magni, nihil praesentium incidunt expedita
+        autem saepe vel tempora, aliquam veniam similique, nisi ut
+        hic! Similique excepturi, provident totam eos itaque magni
+        aliquid quis quas sint deleniti nam dolorum aspernatur minus
+        dicta, reprehenderit voluptatem incidunt vitae voluptas
+        corrupti quisquam! Minus cupiditate recusandae saepe
+        veritatis. Modi minima aut doloribus laborum id omnis illum
+        voluptatum, eligendi ducimus asperiores iste corporis enim
+        necessitatibus officiis veritatis. Iure totam, ea ipsa
+        quisquam eum soluta iste voluptatibus repellendus
+        necessitatibus illum optio hic quam, est voluptates, magnam
+        quasi facere voluptas incidunt numquam quos! Ad nulla labore
+        dolor inventore fuga illo quisquam similique, maxime
+        necessitatibus architecto porro maiores incidunt delectus
+        quam, iure dicta provident assumenda hic tenetur alias?
+        Corrupti at enim fugiat dolorem doloribus nesciunt natus
+        sunt suscipit aut quis odit, nihil minus hic rem, aliquid
+        voluptates officiis! Quos aspernatur, vero sint perferendis
+        ut error maxime ea nulla alias perspiciatis repudiandae
+        deleniti, doloribus eveniet minima nemo animi placeat magni
+        qui harum odio voluptate nam quia? Libero accusantium autem
+        corporis ducimus obcaecati, nesciunt similique eum
+        recusandae ad, asperiores accusamus, odio debitis facere
+        molestias error iusto officia culpa quae qui eligendi ipsa
+        neque nisi consequuntur? Numquam adipisci ipsum aliquam
+        reiciendis asperiores error impedit eaque eveniet
+        dignissimos! Eveniet inventore quos impedit, debitis vitae
+        quis illum omnis est. Ut minima soluta nulla molestias
+        labore aperiam rerum magnam, voluptas velit natus esse
+        nesciunt, ea reprehenderit nihil fuga iure. Eaque nesciunt
+        fuga tempora consequatur suscipit reprehenderit dolorum,
+        quis quod cumque sapiente quasi iusto ipsum molestias
+        aperiam, veritatis pariatur iure adipisci eum consectetur
+        repudiandae. Dolorem, dolores? Perferendis quia autem nulla
+        in? Doloribus deserunt dolores laboriosam hic labore
+        quisquam expedita suscipit nesciunt iusto corporis nemo
+        cupiditate aspernatur repudiandae nam, officiis tempora eos
+        quo. Expedita, illo repellendus, saepe ipsa sint
+        necessitatibus vero qui, recusandae cum architecto earum
+        molestiae eligendi! Expedita vero pariatur porro dolorum
+        labore, repudiandae laboriosam vel. Minima tenetur quod vel.
+        Reprehenderit atque eum ex laudantium?
+        <hr />
+        瞠身疾国者先仄范爱才倒司德逃，头赏松九非哥十国看，起后学姑动，导衣是妙学亲，中秦有范子投以未，国斯备有觉未没，对那鲜为国太脱，为明亡会楚这时俭来才活沫二败谭，解何是程极是羊老六的反总见县才沉流，没上也可则投和只山种，韩劝日法要并因则份得低月绪，惜名德的光云文大是自为，说以心说关打于，生瞠会非，快法年互后放派都是联于，德入名归狱穿倒求，来位我导找谢她同，人活啊勇孔劝远德感的夫相血骂，上何藏你重师太就，秦不成人变上君但切尘报我，念血了，价是了老，向君打者惜秦仁将而后谭婵说事以，狂性设太判整于他圣洪说日玉得，国书护学，可为蒲瞠风你关领地妙修和，种本二但大，是你谭张修气满，帝回为，同降肯仅秦谋评老名。
+      </div>
+    </div>
+  </main>
 
-        <!-- BOTTOM -->
-        <footer
-            class="pt-8 pb-4 px-4 h-auto border-t color-border w-full flex flex-col justify-center gap-8"
-        >
-            <div
-                class="max-w-7xl w-full mx-auto h-full flex flex-col md:flex-row justify-start md:justify-end items-center gap-8"
-            >
-                <!-- THEME BUTTON 此 classlist 受代码控制！ -->
-                <div
-                    class="flex flex-row gap-1 p-1 w-full md:w-auto border color-border rounded-full antialiased"
-                    role="radiogroup"
-                >
-                    <button
-                        class="theme-btn"
-                        role="radio"
-                        type="button"
-                        aria-checked="false"
-                        data-theme="light"
-                    >
-                        <svg
-                            viewBox="0 0 16 16"
-                            height="16"
-                            width="16"
-                            data-slot="geist-icon"
-                            style="color: currentcolor"
-                        >
-                            <path
-                                fill="currentColor"
-                                fill-rule="evenodd"
-                                d="M8.75.75V0h-1.5v2h1.5V.75M3.26 4.32l-.53-.53-.35-.35-.53-.53L2.9 1.85l.53.53.35.35.53.53zm8.42-1.06.53-.53.35-.35.53-.53 1.06 1.06-.53.53-.35.35-.53.53zM8 11.25a3.25 3.25 0 1 0 0-6.5 3.25 3.25 0 0 0 0 6.5m0 1.5a4.75 4.75 0 1 0 0-9.5 4.75 4.75 0 0 0 0 9.5m6-5.5h2v1.5h-2zm-13.25 0H0v1.5h2v-1.5H.75m1.62 5.32-.53.53 1.06 1.06.53-.53.35-.35.53-.53-1.06-1.06-.53.53zm10.2 1.06.53.53 1.06-1.06-.53-.53-.35-.35-.53-.53-1.06 1.06.53.53zM8.75 14v2h-1.5v-2z"
-                                clip-rule="evenodd"
-                            ></path>
-                        </svg>
-                        <span class="inline md:hidden"> Light </span>
-                    </button>
-                    <button
-                        class="theme-btn active"
-                        role="radio"
-                        type="button"
-                        aria-checked="true"
-                        data-theme="system"
-                    >
-                        <svg
-                            viewBox="0 0 16 16"
-                            height="16"
-                            width="16"
-                            data-slot="geist-icon"
-                            style="color: currentcolor"
-                        >
-                            <path
-                                fill="currentColor"
-                                fill-rule="evenodd"
-                                d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8.5a1 1 0 0 1-1 1H8.75v3h1.75V16h-5v-1.5h1.75v-3H1a1 1 0 0 1-1-1zm1.5.5V10h13V2.5z"
-                                clip-rule="evenodd"
-                            ></path>
-                        </svg>
-                        <span class="inline md:hidden"> System </span>
-                    </button>
-                    <button
-                        class="theme-btn"
-                        role="radio"
-                        type="button"
-                        aria-checked="false"
-                        data-theme="dark"
-                    >
-                        <svg
-                            viewBox="0 0 16 16"
-                            height="16"
-                            width="16"
-                            data-slot="geist-icon"
-                            style="color: currentcolor"
-                        >
-                            <path
-                                fill="currentColor"
-                                fill-rule="evenodd"
-                                d="M1.5 8a6 6 0 0 1 3.62-5.51 7 7 0 0 0 7.08 9.25A5.99 5.99 0 0 1 1.5 8M6.42.58a7.5 7.5 0 1 0 7.96 10.41l-.92-1.01a5.5 5.5 0 0 1-6.3-8.25zm6.83.42v1.75H15v1.5h-1.75V6h-1.5V4.25H10v-1.5h1.75V1z"
-                                clip-rule="evenodd"
-                            ></path>
-                        </svg>
-                        <span class="inline md:hidden"> Dark </span>
-                    </button>
-                </div>
-            </div>
-            <!-- COPYRIGHT ANNOUNCEMENT -->
-            <small
-                class="max-w-7xl w-auto mx-auto color-text-secondary font-mono text-xs text-center"
-            >
-                Copyright © 2026 XINICOM (YiCheng ZHOU). All Rights Reserved.
-            </small>
-        </footer>
-    </body>
+  <!-- BOTTOM -->
+  <footer class="pt-8 pb-4 px-4 h-auto border-t color-border w-full flex flex-col justify-center gap-8">
+    <div class="max-w-7xl w-full mx-auto h-full flex flex-col md:flex-row justify-start md:justify-end items-center gap-8">
+      <!-- THEME BUTTON 此 classlist 受代码控制！ -->
+      <div class="flex flex-row gap-1 p-1 w-full md:w-auto border color-border rounded-full antialiased" role="radiogroup">
+        <button class="theme-btn" role="radio" type="button" aria-checked="false" data-theme="light">
+          <svg viewBox="0 0 16 16" height="16" width="16" data-slot="geist-icon" style="color: currentcolor">
+            <path fill="currentColor" fill-rule="evenodd" d="M8.75.75V0h-1.5v2h1.5V.75M3.26 4.32l-.53-.53-.35-.35-.53-.53L2.9 1.85l.53.53.35.35.53.53zm8.42-1.06.53-.53.35-.35.53-.53 1.06 1.06-.53.53-.35.35-.53.53zM8 11.25a3.25 3.25 0 1 0 0-6.5 3.25 3.25 0 0 0 0 6.5m0 1.5a4.75 4.75 0 1 0 0-9.5 4.75 4.75 0 0 0 0 9.5m6-5.5h2v1.5h-2zm-13.25 0H0v1.5h2v-1.5H.75m1.62 5.32-.53.53 1.06 1.06.53-.53.35-.35.53-.53-1.06-1.06-.53.53zm10.2 1.06.53.53 1.06-1.06-.53-.53-.35-.35-.53-.53-1.06 1.06.53.53zM8.75 14v2h-1.5v-2z" clip-rule="evenodd"></path>
+          </svg>
+          <span class="inline md:hidden"> Light </span>
+        </button>
+        <button class="theme-btn active" role="radio" type="button" aria-checked="true" data-theme="system">
+          <svg viewBox="0 0 16 16" height="16" width="16" data-slot="geist-icon" style="color: currentcolor">
+            <path fill="currentColor" fill-rule="evenodd" d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8.5a1 1 0 0 1-1 1H8.75v3h1.75V16h-5v-1.5h1.75v-3H1a1 1 0 0 1-1-1zm1.5.5V10h13V2.5z" clip-rule="evenodd"></path>
+          </svg>
+          <span class="inline md:hidden"> System </span>
+        </button>
+        <button class="theme-btn" role="radio" type="button" aria-checked="false" data-theme="dark">
+          <svg viewBox="0 0 16 16" height="16" width="16" data-slot="geist-icon" style="color: currentcolor">
+            <path fill="currentColor" fill-rule="evenodd" d="M1.5 8a6 6 0 0 1 3.62-5.51 7 7 0 0 0 7.08 9.25A5.99 5.99 0 0 1 1.5 8M6.42.58a7.5 7.5 0 1 0 7.96 10.41l-.92-1.01a5.5 5.5 0 0 1-6.3-8.25zm6.83.42v1.75H15v1.5h-1.75V6h-1.5V4.25H10v-1.5h1.75V1z" clip-rule="evenodd"></path>
+          </svg>
+          <span class="inline md:hidden"> Dark </span>
+        </button>
+      </div>
+    </div>
+    <!-- COPYRIGHT ANNOUNCEMENT -->
+    <small class="max-w-7xl w-auto mx-auto color-text-secondary font-mono text-xs text-center">
+      Copyright © 2026 XINICOM (YiCheng ZHOU). All Rights Reserved.
+    </small>
+  </footer>
+</body>
+
 </html>

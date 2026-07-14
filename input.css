@@ -50,8 +50,6 @@ p {
     word-break: break-all;
 }
 
-
-
 /* PRE TO CODE BLOCK */
 .code-frame {
     @apply max-h-screen h-96 max-w-5xl mx-auto;
@@ -86,7 +84,7 @@ p {
     @apply min-w-full w-fit;
 }
 .code-content-code {
-    @apply w-full
+    @apply w-full;
 }
 .code-content-line {
     @apply pl-2;
@@ -99,7 +97,22 @@ p {
 img {
     @apply border rounded-md lg:rounded-xl border-border-light dark:border-border-dark;
     @apply shadow-md dark:shadow-none max-w-3xl mx-auto my-4 w-full lg:w-auto;
+    /* @apply dark:brightness-75; */
+    /* @apply rounded-md lg:rounded-xl; */
 }
+img.dark-img-dim {
+    @apply dark:brightness-75;
+}
+/* .img-wrapper {
+    @apply mix-blend-multiply bg-border-light;
+    @apply border rounded-md lg:rounded-xl border-border-light dark:border-border-dark;
+    @apply shadow-md dark:shadow-none max-w-3xl mx-auto my-4 w-fit lg:w-auto;
+    @apply cursor-none pointer-events-none;
+} */
+
+/* img::after {
+    @apply bg-transparent dark:bg-black/60;
+} */
 
 hr {
     @apply my-4;

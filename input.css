@@ -51,27 +51,52 @@ p {
 }
 
 /* PRE TO CODE BLOCK */
+.code-section {
+    @apply border-2 border-border-light dark:border-border-dark;
+    @apply rounded-md lg:rounded-xl;
+    @apply bg-bg0-light dark:bg-code text-textContent-light dark:text-textContent-dark;
+    /* @apply text-sm; */
+}
+.code-header {
+    @apply flex flex-row justify-between;
+    @apply h-fit px-2 py-1;
+    @apply border-b-2 border-border-light dark:border-border-dark;
+}
+.code-header-left,
+.code-header-right {
+    @apply flex flex-row gap-4;
+}
+.code-header-filename {
+    @apply font-semibold;
+}
+.code-header-language {
+    @apply uppercase select-none;
+}
+.code-header-copy-btn {
+    @apply text-textSecondary-light hover:text-textPrimary-light dark:text-textSecondary-dark dark:hover:text-textPrimary-dark;
+}
 .code-frame {
     @apply max-h-screen h-96 max-w-5xl mx-auto;
     @apply overflow-auto;
     @apply shadow-sm dark:shadow-none;
-    @apply border-2 border-border-light dark:border-border-dark;
-    @apply rounded-md lg:rounded-xl;
-    @apply bg-bg0-light dark:bg-code text-textContent-light dark:text-textContent-dark;
+    /* @apply border-2 border-border-light dark:border-border-dark; */
+    /* @apply rounded-md lg:rounded-xl; */
+    @apply rounded-b-md lg:rounded-b-xl;
+    /* @apply bg-bg0-light dark:bg-code text-textContent-light dark:text-textContent-dark; */
 }
 .code-view {
-    @apply pb-2;
+    /* @apply pb-2; */
     @apply text-sm font-mono;
     @apply grid gap-0;
     grid-template-columns: auto 1fr;
 }
 .code-numbders {
     @apply select-none text-right;
-    @apply border-r border-textSecondary-dark text-textSecondary-dark;
+    @apply border-r border-textSecondary-light text-textSecondary-light dark:border-textSecondary-dark dark:text-textSecondary-dark;
     @apply flex flex-col items-stretch;
 }
 .code-numbers-num {
-    @apply pl-2 pr-2;
+    @apply px-2;
 }
 .code-numbers-num.code-line-highlight {
     @apply w-full bg-black/5 dark:bg-bg1-dark text-textPrimary-light dark:text-textPrimary-dark font-semibold;

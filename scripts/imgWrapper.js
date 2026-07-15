@@ -8,12 +8,10 @@ window.addEventListener("DOMContentLoaded", function () {
         .forEach((img) => {
             if (img.complete && img.naturalWidth > 0 && img.naturalHeight > 0) {
                 console.log(img, "LOADED");
-                // console.log("LOADED");
                 if (isImgToBright(img, AvgBrightnessThreshold))
                     img.classList.add("dark-img-dim");
             } else {
                 console.log(img, "UnLOAD");
-                // console.log("UnLOAD");
                 img.addEventListener("load", function onImgLoad() {
                     if (isImgToBright(img, AvgBrightnessThreshold))
                         img.classList.add("dark-img-dim");

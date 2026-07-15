@@ -50,6 +50,27 @@ p {
     word-break: break-all;
 }
 
+/* TOC BTN */
+.toc-item {
+    @apply text-textSecondary-light hover:text-textPrimary-light dark:text-textSecondary-dark dark:hover:text-textPrimary-dark;
+    @apply capitalize whitespace-pre-wrap;
+}
+.toc-item.toc-active {
+    @apply text-textPrimary-light dark:text-textPrimary-dark;
+}
+/* .toc-item.level-2 {
+    @apply pl-4;
+}
+.toc-item.level-3 {
+    @apply pl-8;
+}
+.toc-item.level-4 {
+    @apply pl-12;
+}
+.toc-item.level-5 {
+    @apply pl-16;
+} */
+
 /* PRE TO CODE BLOCK */
 .code-section {
     @apply border-2 border-border-light dark:border-border-dark;
@@ -76,7 +97,7 @@ p {
     @apply text-textSecondary-light hover:text-textPrimary-light dark:text-textSecondary-dark dark:hover:text-textPrimary-dark;
 }
 .code-frame {
-    @apply max-h-screen h-96 max-w-5xl mx-auto;
+    @apply max-h-96 h-fit max-w-5xl mx-auto;
     @apply overflow-auto;
     @apply shadow-sm dark:shadow-none;
     /* @apply border-2 border-border-light dark:border-border-dark; */
@@ -141,10 +162,11 @@ img.dark-img-dim {
 } */
 
 hr {
-    @apply my-4;
+    @apply my-2;
+    @apply border border-border-light dark:border-border-dark;
 }
 
-.color-nav-btn {
+.color-text-btn {
     @apply text-textSecondary-light hover:text-textPrimary-light dark:text-textSecondary-dark dark:hover:text-textPrimary-dark;
 }
 

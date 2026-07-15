@@ -7,11 +7,9 @@ window.addEventListener("DOMContentLoaded", function () {
         .querySelectorAll("img:not(.maintain-brightness)")
         .forEach((img) => {
             if (img.complete && img.naturalWidth > 0 && img.naturalHeight > 0) {
-                console.log(img, "LOADED");
                 if (isImgToBright(img, AvgBrightnessThreshold))
                     img.classList.add("dark-img-dim");
             } else {
-                console.log(img, "UnLOAD");
                 img.addEventListener("load", function onImgLoad() {
                     if (isImgToBright(img, AvgBrightnessThreshold))
                         img.classList.add("dark-img-dim");

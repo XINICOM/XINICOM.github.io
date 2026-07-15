@@ -15,6 +15,8 @@
 章节 P-8
 段落 P-4 -->
 
+<!-- 此处的导航组件内容不全面 -->
+
 <body class="antialiased color-layer-0 color-text-primary overflow-auto">
   <!-- NAVIGATION COMPONENT -->
   <nav class="w-screen h-auto flex flex-col fixed z-10" id="navcomponent">
@@ -27,12 +29,12 @@
           <span class="font-medium">blog</span>
         </div>
         <div class="hidden lg:flex flex-row gap-8 text-lg lg:text-xl capitalize font-sans tracking-wide">
-          <a href="#" class="color-nav-btn">column</a>
-          <a href="#" class="color-nav-btn">category</a>
-          <a href="./articles/2026/07/12/testarticle1/" class="color-nav-btn">archieve</a>
-          <a href="#" class="color-nav-btn">about</a>
+          <a href="#" class="color-text-btn">column</a>
+          <a href="#" class="color-text-btn">category</a>
+          <a href="./articles/2026/07/12/testarticle1/" class="color-text-btn">archieve</a>
+          <a href="#" class="color-text-btn">about</a>
         </div>
-        <button class="color-nav-btn block lg:hidden" id="navbtn">
+        <button class="color-text-btn block lg:hidden" id="navbtn">
           <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" id="navicon">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
@@ -42,12 +44,13 @@
     <!-- NAV MENU 此 classlist 受代码控制！-->
     <div class="fixed h-full overflow-auto hidden flex-col justify-start lg:hidden left-0 right-0 top-16 color-floating color-transparent transition-colors duration-100 font-sans" id="navmenu">
       <div class="flex flex-col gap-3 p-8 w-full text-lg capitalize tracking-wide">
-        <a href="#" class="color-nav-btn">column</a>
-        <a href="#" class="color-nav-btn">category</a>
-        <a href="./articles/2026/07/12/testarticle1/" class="color-nav-btn">archieve</a>
-        <a href="#" class="color-nav-btn">about</a>
+        <a href="#" class="color-text-btn">column</a>
+        <a href="#" class="color-text-btn">category</a>
+        <a href="./articles/2026/07/12/testarticle1/" class="color-text-btn">archieve</a>
+        <a href="#" class="color-text-btn">about</a>
       </div>
     </div>
+    <!-- 此处不包含 Catalog 部分 -->
   </nav>
 
   <main class="w-screen min-h-screen">

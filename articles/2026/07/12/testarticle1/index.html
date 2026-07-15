@@ -8,6 +8,7 @@
         <script defer src="./../../../../../scripts/themeBtn.js"></script>
         <script defer src="./../../../../../scripts/preToCodeBlock.js"></script>
         <script defer src="./../../../../../scripts/imgWrapper.js"></script>
+        <script defer src="./../../../../../scripts/tocGenterator.js"></script>
         <link rel="stylesheet" href="./../../../../../output.css" />
     </head>
 
@@ -28,7 +29,7 @@
                             >/</span
                         >
                         <a
-                            class="font-medium color-nav-btn"
+                            class="font-medium color-text-btn"
                             href="./../../../../../"
                             >blog</a
                         >
@@ -36,12 +37,12 @@
                     <div
                         class="hidden lg:flex flex-row gap-8 text-lg lg:text-xl capitalize font-sans tracking-wide"
                     >
-                        <a href="#" class="color-nav-btn">column</a>
-                        <a href="#" class="color-nav-btn">category</a>
-                        <a href="#" class="color-nav-btn">archieve</a>
-                        <a href="#" class="color-nav-btn">about</a>
+                        <a href="#" class="color-text-btn">column</a>
+                        <a href="#" class="color-text-btn">category</a>
+                        <a href="#" class="color-text-btn">archieve</a>
+                        <a href="#" class="color-text-btn">about</a>
                     </div>
-                    <button class="color-nav-btn block lg:hidden" id="navbtn">
+                    <button class="color-text-btn block lg:hidden" id="navbtn">
                         <svg
                             class="w-8 h-8"
                             fill="none"
@@ -61,22 +62,30 @@
             </header>
             <!-- NAV MENU 此 classlist 受代码控制！-->
             <div
-                class="fixed h-full overflow-auto hidden flex-col justify-start lg:hidden left-0 right-0 top-16 color-floating color-transparent transition-colors duration-100 font-sans"
+                class="fixed h-full overflow-auto hidden flex-col justify-start lg:hidden left-0 right-0 top-16 gap-6 px-8 py-4 color-floating color-transparent transition-colors duration-100 font-sans"
                 id="navmenu"
             >
                 <div
-                    class="flex flex-col gap-3 p-8 w-full text-lg capitalize tracking-wide"
+                    id="toc"
+                    class="flex flex-col gap-4 w-full text-lg capitalize tracking-wide"
+                ></div>
+                <hr />
+                <div
+                    class="flex flex-col gap-4 w-full text-lg capitalize tracking-wide"
                 >
-                    <a href="#" class="color-nav-btn">column</a>
-                    <a href="#" class="color-nav-btn">category</a>
-                    <a href="#" class="color-nav-btn">archieve</a>
-                    <a href="#" class="color-nav-btn">about</a>
+                    <a href="#" class="color-text-btn">column</a>
+                    <a href="#" class="color-text-btn">category</a>
+                    <a href="#" class="color-text-btn">archieve</a>
+                    <a href="#" class="color-text-btn">about</a>
                 </div>
             </div>
         </nav>
 
         <main class="w-screen min-h-screen mt-16 lg:mt-20">
-            <article class="content-body color-text-content pb-16 pt-0">
+            <article
+                class="content-body color-text-content pb-16 pt-0"
+                tocSource
+            >
                 <!-- 直接包含生成器的生成内容，具体的结构由前端 JS 渲染 -->
                 <h1>前言</h1>
                 <p>
@@ -138,127 +147,6 @@
     /// 数据库读取器
     /// &lt;/summary&gt;
     private SqliteDataReader reader;
-    /// &lt;summary&gt;
-    /// 连入数据库,并打开
-    /// &lt;/summary&gt;
-    /// &lt;param name=&quot;name&quot;&gt;数据库名字&lt;/param&gt;
-    public void ConnectingDatabase(string name)
-    {
-        string Path = string.Empty;
-#if UNITY_EDITOR
-        Debug.Log(Application.dataPath);
-        Path = Application.dataPath + &quot;/StreamingAssets/&quot; + name;
-#elif UNITY_ANDROID
-        Path = Application.persistentDataPath + &quot;/&quot; + name;
-        if (!File.Exists(Path))
-        {
-            using(UnityWebRequest UWR = UnityWebRequest.Get(&quot;jar:file://&quot; + Application.dataPath + &quot;!/assets/&quot; + name))
-            {
-                UWR.SendWebRequest();
-                while (!UWR.isDone)
-                {
-                    Debug.Log(&quot;数据加载中&quot;);
-                }
-                if (UWR.result == UnityWebRequest.Result.ConnectionError)
-                {
-                    Debug.LogError($&quot;加载出错\n{UWR.result}&quot;);
-                    return;
-                }
-                File.WriteAllBytes(Path, UWR.downloadHandler.data);
-                Debug.Log(&quot;数据加载完成&quot;);
-            }
-        }
-#endif
-        OpenDB(&quot;URI=file:&quot; + Path);
-    }
-    /// &lt;summary&gt;
-    /// 打开数据库
-    /// &lt;/summary&gt;
-    /// &lt;param name=&quot;connectionString&quot;&gt;连接名&lt;/param&gt;
-    public void OpenDB(string connectionString)
-    {
-        try
-        {
-            if (dbConnection == null)
-            {
-                dbConnection = new SqliteConnection(connectionString);
-
-            }
-            dbConnection.Open();
-        }
-        catch (Exception e)
-        {
-            Debug.LogError(e.ToString());
-        }
-    }
-    /// &lt;summary&gt;
-    /// 关闭数据库
-    /// &lt;/summary&gt;
-    public void CloseSqlConnection()
-    {
-        if (dbCommand != null)
-        {
-            dbCommand.Dispose();
-        }
-        dbCommand = null;
-        if (reader != null)
-        {
-            reader.Dispose();
-        }
-        reader = null;
-        if (dbConnection != null)
-        {
-            dbConnection.Dispose();
-        }
-        dbConnection.Close();
-        dbConnection = null;
-    }
-    /// &lt;summary&gt;
-    /// 执行SQL语句
-    /// &lt;/summary&gt;
-    /// &lt;param name=&quot;sqlQuery&quot;&gt;SQL语句&lt;/param&gt;
-    /// &lt;returns&gt;SQL读取器&lt;/returns&gt;
-    public SqliteDataReader ExecuteQuery(string sqlQuery)
-    {
-        dbCommand = dbConnection.CreateCommand();
-        dbCommand.CommandText = sqlQuery;
-        reader = dbCommand.ExecuteReader();
-        return reader;
-    }
-    /// &lt;summary&gt;
-    /// 读取整个表格
-    /// &lt;/summary&gt;
-    /// &lt;param name=&quot;tableName&quot;&gt;表格名&lt;/param&gt;
-    /// &lt;returns&gt;SQL读取器&lt;/returns&gt;
-    public SqliteDataReader ReadFullTable(string tableName)
-    {
-        string query = &quot;Select * From &quot; + tableName;
-        return ExecuteQuery(query);
-    }
-    /// &lt;summary&gt;
-    /// 读取整个表格
-    /// &lt;/summary&gt;
-    /// &lt;param name=&quot;tableName&quot;&gt;表格名&lt;/param&gt;
-    /// &lt;returns&gt;字符串&lt;/returns&gt;
-    public string ReadFullTable_ToString(string tableName)
-    {
-        string text = string.Empty;
-        ReadFullTable(tableName);
-        while (reader.Read())
-        {
-            string str = string.Empty;
-            for (int i = 0; i &lt; reader.FieldCount; i++)
-            {
-                str += reader.GetValue(i);
-                str += &quot;;&quot;;
-            }
-            str = str.Substring(0, str.Length - 1);
-            text += str;
-            text += '\n';
-        }
-        text = text.Substring(0, text.Length - 1);
-        return text;
-    }
 }</code></pre>
                 <h2>创建Sqlite数据库文件</h2>
                 <p>

@@ -135,7 +135,7 @@ code,
 kbd,
 samp,
 pre {
-  font-family: Consolas, ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  font-family: Consolas, ui-monospace, monospace, ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
   /* 1 */
   font-feature-settings: normal;
   /* 2 */
@@ -771,10 +771,6 @@ video {
   gap: 4rem;
 }
 
-.gap-2 {
-  gap: 0.5rem;
-}
-
 .gap-3 {
   gap: 0.75rem;
 }
@@ -917,7 +913,7 @@ video {
 }
 
 .font-mono {
-  font-family: Consolas, ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  font-family: Consolas, ui-monospace, monospace, ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
 }
 
 .font-sans {
@@ -1367,7 +1363,7 @@ hr {
 }
 
 .code-view {
-  font-family: Consolas, ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  font-family: Consolas, ui-monospace, monospace, ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
   font-size: 0.875rem;
   line-height: 1.25rem;
   display: grid;

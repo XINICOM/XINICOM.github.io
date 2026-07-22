@@ -22,29 +22,104 @@ html {
     @apply max-w-5xl mx-auto px-8 leading-loose tracking-wide;
 }
 
+/* CALLOUT */
+/* note tip important warning caution */
+.aside-resize-top .callout {
+    @apply px-4 py-2 lg:py-4;
+    @apply tracking-wide text-base lg:text-lg;
+    /* @apply text-textContent-light dark:text-textContent-dark; */
+    /* @apply border-y-2 lg:border-y-4; */
+    @apply border-y-4;
+}
+.callout .callout-title {
+    @apply text-lg lg:text-2xl tracking-wider font-semibold pb-2 lg:pb-4;
+    /* @apply bg-[#d1242f];
+    opacity: 0.08; */
+}
+article .callout {
+    @apply px-4 py-2 lg:py-4;
+    @apply my-2 lg:my-4;
+    @apply tracking-wide text-base lg:text-lg;
+    /* @apply border-l-2 lg:border-l-4; */
+    @apply border-l-4;
+    /* @apply text-textContent-light dark:text-textContent-dark; */
+}
+article .callout .callout-title {
+    @apply text-lg lg:text-2xl tracking-wider font-semibold pb-2 lg:pb-4;
+    /* @apply border-b-2; */
+    /* @apply bg-[#d1242f];
+    opacity: 0.08; */
+}
+.callout {
+    @apply text-textContent-light dark:text-textContent-dark;
+    @apply border-textContent-light dark:border-textContent-dark;
+    @apply bg-black/5 dark:bg-bg1-dark;
+}
+.callout .callout-title {
+    @apply border-textContent-light dark:border-textContent-dark;
+}
+.callout.note .callout-title {
+    @apply text-[#1f6feb] border-[#1f6feb];
+}
+.callout.note {
+    @apply border-[#1f6feb] bg-[#1f6feb]/10;
+    /* 1e252e */
+}
+.callout.tip .callout-title {
+    @apply text-[#1a7f37] border-[#1a7f37];
+}
+.callout.tip {
+    @apply border-[#1a7f37] bg-[#1a7f37]/10;
+    /* 1e2620 */
+}
+.callout.important .callout-title {
+    @apply text-[#8250df] border-[#8250df];
+}
+.callout.important {
+    @apply border-[#8250df] bg-[#8250df]/10;
+    /* 26222d */
+}
+.callout.warning .callout-title {
+    @apply text-[#c88d17] border-[#c88d17];
+}
+.callout.warning {
+    @apply border-[#c88d17] bg-[#c88d17]/10;
+    /* 2c271e */
+}
+.callout.caution .callout-title {
+    @apply text-[#d1242f] border-[#d1242f];
+}
+.callout.caution {
+    @apply border-[#d1242f] bg-[#d1242f]/10;
+    /* 2c1f20 */
+}
+
 /* ARTICLE TITLE */
 .article-header {
     /* @apply mt-16 lg:mt-20 py-8 px-12 border-b color-border color-text-content; */
+    @apply py-4 px-4;
+    @apply text-sm;
     @apply tracking-wide;
     @apply grid gap-y-2;
     @apply text-base;
     @apply w-fit mx-auto;
-    grid-template-columns: 100px auto;
-    grid-template-rows: auto auto auto auto auto auto auto;
+    grid-template-columns: auto auto;
+    /* grid-template-rows: auto auto auto auto auto auto auto; */
+    grid-template-rows: auto auto auto auto auto;
     grid-template-areas:
         "article-title article-title"
         "article-tags article-tags"
         "article-categories article-categories"
-        "article-first_publish_time article-first_publish_time"
-        "article-first_publish_place article-first_publish_place"
+        /* "article-first_publish_time article-first_publish_time" */
+        /* "article-first_publish_place article-first_publish_place" */
         "article-publish_time article-publish_time"
         "article-expect_reading_time article-expect_reading_time";
 }
 .article-header > .article-title {
     grid-area: article-title;
-    @apply text-4xl text-center font-bold pb-4;
+    @apply text-3xl text-center font-bold pb-4;
 }
-.article-header > .article-first_publish_time {
+/* .article-header > .article-first_publish_time {
     grid-area: article-first_publish_time;
     @apply grid;
     grid-template-columns: subgrid;
@@ -55,7 +130,7 @@ html {
     @apply grid;
     grid-template-columns: subgrid;
     grid-column: span 2;
-}
+} */
 .article-header > .article-publish_time {
     grid-area: article-publish_time;
     @apply grid;
@@ -101,26 +176,29 @@ html {
 @media (min-width: 1024px) {
     .article-header {
         /* @apply mt-16 lg:mt-20 py-8 px-12 border-b color-border color-text-content; */
+        @apply py-8 px-4;
         @apply tracking-wide;
+        @apply text-base;
         @apply grid gap-y-2;
         @apply text-lg;
         @apply w-fit mx-auto;
         grid-template-columns:
-            100px minmax(auto, max-content) 200px
+            120px minmax(auto, max-content) 170px
             minmax(auto, max-content);
-        grid-template-rows: auto auto auto auto auto;
+        /* grid-template-rows: auto auto auto auto auto; */
+        grid-template-rows: auto auto auto auto;
         grid-template-areas:
             "article-title article-title article-title article-title"
             "article-tags article-tags article-tags article-tags"
             "article-categories article-categories article-categories article-categories"
-            "article-first_publish_time article-first_publish_time article-first_publish_place article-first_publish_place"
+            /* "article-first_publish_time article-first_publish_time article-first_publish_place article-first_publish_place" */
             "article-publish_time article-publish_time article-expect_reading_time article-expect_reading_time";
     }
     .article-header > .article-title {
         grid-area: article-title;
         @apply text-5xl text-center pb-4;
     }
-    .article-header > .article-first_publish_time {
+    /* .article-header > .article-first_publish_time {
         grid-area: article-first_publish_time;
         @apply grid;
         grid-template-columns: subgrid;
@@ -131,7 +209,7 @@ html {
         @apply grid;
         grid-template-columns: subgrid;
         grid-column: span 2;
-    }
+    } */
     .article-header > .article-publish_time {
         grid-area: article-publish_time;
         @apply grid;
@@ -181,11 +259,15 @@ html {
     grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
 }
 .archive-cards .archive-card-item {
-    @apply p-4;
+    @apply py-4 lg:py-6 px-4;
     @apply flex flex-col gap-2;
+    /* @apply  grid grid-cols-[max-content_1fr]; */
 }
 .archive-cards .archive-card-item:first-child {
     @apply pt-0;
+}
+.archive-cards .archive-card-item:last-child {
+    @apply pb-0;
 }
 .archive-cards .archive-card-item:not(:last-child) {
     @apply border-b border-border-light dark:border-border-dark;
@@ -201,19 +283,22 @@ html {
 } */
 
 /* COMMON TAG */
+p {
+    @apply py-1;
+}
 article h1 {
-    @apply font-extrabold text-3xl text-center tracking-widest;
+    @apply font-extrabold  text-2xl lg:text-3xl text-center tracking-widest;
     @apply pt-6 lg:pt-8 pb-2 mb-4;
     @apply border-b border-border-light dark:border-border-dark;
 }
 article h2 {
-    @apply font-bold text-2xl pb-2 pt-4;
+    @apply font-bold text-xl lg:text-2xl pb-2 pt-4;
 }
 article h3 {
-    @apply font-bold text-xl py-2;
+    @apply font-bold text-lg lg:text-xl py-2;
 }
 article h4 {
-    @apply font-semibold text-lg py-2;
+    @apply font-bold text-base lg:font-semibold lg:text-lg py-2;
 }
 article h5 {
     @apply font-semibold text-base py-2;
@@ -222,7 +307,7 @@ article h6 {
     @apply text-base py-2;
 }
 article p {
-    @apply pb-4;
+    @apply pb-2 lg:pb-4;
 }
 article :not(pre) > code {
     @apply bg-black/5 dark:bg-code;
@@ -244,7 +329,8 @@ article hr {
 }
 .toc-item.toc-active {
     /* @apply text-textPrimary-light dark:text-textPrimary-dark; */
-    @apply text-red-500 sm:text-orange-500 md:text-yellow-500 lg:text-green-600 xl:text-blue-600 2xl:text-purple-600 dark:text-red-300 dark:sm:text-orange-300 dark:md:text-yellow-200 dark:lg:text-green-300 dark:xl:text-blue-300 dark:2xl:text-purple-300;
+    @apply text-textPrimary-light dark:text-textPrimary-dark font-semibold;
+    /* @apply text-red-500 sm:text-orange-500 md:text-yellow-500 lg:text-green-600 xl:text-blue-600 2xl:text-purple-600 dark:text-red-300 dark:sm:text-orange-300 dark:md:text-yellow-200 dark:lg:text-green-300 dark:xl:text-blue-300 dark:2xl:text-purple-300; */
 }
 
 /* PRE TO CODE BLOCK */
@@ -334,7 +420,8 @@ img.dark-img-dim {
     @apply text-textSecondary-light hover:text-textPrimary-light dark:text-textSecondary-dark dark:hover:text-textPrimary-dark;
 }
 .color-text-btn.active {
-    @apply text-red-500 sm:text-orange-500 md:text-yellow-500 lg:text-green-600 xl:text-blue-600 2xl:text-purple-600 dark:text-red-300 dark:sm:text-orange-300 dark:md:text-yellow-200 dark:lg:text-green-300 dark:xl:text-blue-300 dark:2xl:text-purple-300;
+    @apply text-textPrimary-light dark:text-textPrimary-dark font-semibold;
+    /* @apply text-red-500 sm:text-orange-500 md:text-yellow-500 lg:text-green-600 xl:text-blue-600 2xl:text-purple-600 dark:text-red-300 dark:sm:text-orange-300 dark:md:text-yellow-200 dark:lg:text-green-300 dark:xl:text-blue-300 dark:2xl:text-purple-300; */
 }
 .highlight-color {
     @apply text-red-500 sm:text-orange-500 md:text-yellow-500 lg:text-green-600 xl:text-blue-600 2xl:text-purple-600 dark:text-red-300 dark:sm:text-orange-300 dark:md:text-yellow-200 dark:lg:text-green-300 dark:xl:text-blue-300 dark:2xl:text-purple-300;
@@ -344,8 +431,9 @@ img.dark-img-dim {
 }
 .theme-btn.active {
     /* @apply text-textPrimary-light dark:text-textPrimary-dark; */
+    @apply text-textPrimary-light dark:text-textPrimary-dark font-semibold;
     @apply bg-border-light dark:bg-border-dark cursor-default;
-    @apply text-red-500 sm:text-orange-500 md:text-yellow-500 lg:text-green-600 xl:text-blue-600 2xl:text-purple-600 dark:text-red-300 dark:sm:text-orange-300 dark:md:text-yellow-200 dark:lg:text-green-300 dark:xl:text-blue-300 dark:2xl:text-purple-300;
+    /* @apply text-red-500 sm:text-orange-500 md:text-yellow-500 lg:text-green-600 xl:text-blue-600 2xl:text-purple-600 dark:text-red-300 dark:sm:text-orange-300 dark:md:text-yellow-200 dark:lg:text-green-300 dark:xl:text-blue-300 dark:2xl:text-purple-300; */
 }
 .color-floating.color-solid {
     @apply bg-bg0-light dark:bg-bg0-dark;

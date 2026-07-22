@@ -9,11 +9,6 @@ if (targets.length > 0) {
             : 0;
 
     let WindowHeight = window.innerHeight;
-    // let ResizeBottom =
-    //     bottomElement.length > 0
-    //         ? bottomElement[0].getBoundingClientRect().top + window.pageYOffset
-    //         : 0;
-    // console.log(ResizeTop);
 
     window.addEventListener("scroll", TargetResize);
     window.addEventListener("load", () => {
@@ -36,16 +31,9 @@ if (targets.length > 0) {
                 : 0;
 
         WindowHeight = window.innerHeight;
-        // ResizeBottom =
-        //     bottomElement.length > 0
-        //         ? bottomElement[0].getBoundingClientRect().top +
-        //           window.pageYOffset
-        //         : 0;
-        // console.log(ResizeTop);
     }
     function TargetResize() {
         const scrollY = window.pageYOffset;
-        // console.log(scrollY);
 
         let setHeight = "calc(100vh - 5rem)";
         if (scrollY < ResizeTop) {
@@ -59,13 +47,5 @@ if (targets.length > 0) {
         }
 
         targets.forEach((t) => (t.style.height = setHeight));
-
-        // if (scrollY >= ResizeBottom) {
-        //     targets.forEach(
-        //         (target) =>
-        //             (target.style.height = scrollY - ResizeBottom + "px"),
-        //     );
-        // }
-        // targets.forEach((t) => console.log(t.getBoundingClientRect().height));
     }
 }

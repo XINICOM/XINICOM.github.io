@@ -81,7 +81,7 @@ document.querySelectorAll('pre[need-line-numbers="true"]').forEach((pre) => {
     let language = _langClass
         ? _langClass.replace("language-", "")
         : "Plain Text";
-    if (language.toLowerCase() === "csharp") language = "C#";
+    // if (language.toLowerCase() === "csharp") language = "C#";
     codeHR_Language.textContent = language;
     // RIGHT: COPY-BTN
     const codeHR_CopyBtn = document.createElement("button");

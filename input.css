@@ -110,6 +110,7 @@ article .callout .callout-title {
         "article-title article-title"
         "article-tags article-tags"
         "article-categories article-categories"
+        "article-columns article-colums"
         /* "article-first_publish_time article-first_publish_time" */
         /* "article-first_publish_place article-first_publish_place" */
         "article-publish_time article-publish_time"
@@ -173,6 +174,12 @@ article .callout .callout-title {
 .article-header .article-categories-content {
     @apply pl-2;
 }
+.article-header > .article-columns {
+    grid-area: article-columns;
+    @apply grid;
+    grid-template-columns: subgrid;
+    grid-column: span 2;
+}
 @media (min-width: 1024px) {
     .article-header {
         /* @apply mt-16 lg:mt-20 py-8 px-12 border-b color-border color-text-content; */
@@ -190,7 +197,7 @@ article .callout .callout-title {
         grid-template-areas:
             "article-title article-title article-title article-title"
             "article-tags article-tags article-tags article-tags"
-            "article-categories article-categories article-categories article-categories"
+            "article-categories article-categories article-columns article-columns"
             /* "article-first_publish_time article-first_publish_time article-first_publish_place article-first_publish_place" */
             "article-publish_time article-publish_time article-expect_reading_time article-expect_reading_time";
     }
@@ -210,7 +217,7 @@ article .callout .callout-title {
         grid-template-columns: subgrid;
         grid-column: span 2;
     } */
-    .article-header > .article-publish_time {
+    /* .article-header > .article-publish_time {
         grid-area: article-publish_time;
         @apply grid;
         grid-template-columns: subgrid;
@@ -221,7 +228,7 @@ article .callout .callout-title {
         @apply grid;
         grid-template-columns: subgrid;
         grid-column: span 2;
-    }
+    } */
     .article-header > .article-tags {
         grid-area: article-tags;
         @apply grid;
@@ -232,16 +239,16 @@ article .callout .callout-title {
         @apply pl-2;
         grid-column: span 3;
     }
-    .article-header .article-categories-content {
-        @apply pl-2;
-        grid-column: span 3;
-    }
-    .article-header > .article-categories {
+    /* .article-header .article-categories-content {
+        @apply pl-2; */
+    /* grid-column: span 1; */
+    /* } */
+    /* .article-header > .article-categories {
         grid-area: article-categories;
         @apply grid;
         grid-template-columns: subgrid;
-        grid-column: span 4;
-    }
+        grid-column: span 2;
+    } */
 }
 /* .article-header > .article-cover {
     grid-area: article-cover;
@@ -253,13 +260,14 @@ article .callout .callout-title {
     @apply max-w-full max-h-full;
 } */
 
+/* ARCHIVE CARDS */
 .archive-cards {
     @apply w-full;
     @apply flex flex-col;
-    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 .archive-cards .archive-card-item {
-    @apply py-4 lg:py-6 px-4;
+    @apply py-6 lg:py-8 px-4;
     @apply flex flex-col gap-2;
     /* @apply  grid grid-cols-[max-content_1fr]; */
 }

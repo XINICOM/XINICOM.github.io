@@ -3,12 +3,12 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>XINICOM's Blog Categories</title>
-        <script defer src="./../scripts/navMenuBtn.js"></script>
-        <script defer src="./../scripts/themeBtn.js"></script>
-        <script defer src="./../scripts/imgWrapper.js"></script>
-        <script defer src="./../scripts/asideHeightControl.js"></script>
-        <link rel="stylesheet" href="./../output.css" />
+        <title>XINICOM's Blog Column</title>
+        <script defer src="./../../scripts/navMenuBtn.js"></script>
+        <script defer src="./../../scripts/themeBtn.js"></script>
+        <script defer src="./../../scripts/imgWrapper.js"></script>
+        <script defer src="./../../scripts/asideHeightControl.js"></script>
+        <link rel="stylesheet" href="./../../output.css" />
     </head>
     <body class="antialiased color-layer-0 color-text-primary overflow-auto">
         <!-- NAVIGATION COMPONENT -->
@@ -34,9 +34,9 @@
                         class="hidden lg:flex flex-row gap-8 text-lg lg:text-xl capitalize font-sans tracking-wide"
                     >
                         <a href="#" class="color-text-btn">专栏</a>
-                        <a href="#" class="color-text-btn active">分类</a>
+                        <a href="#" class="color-text-btn">分类</a>
                         <a href="#" class="color-text-btn">标签</a>
-                        <a href="#" class="color-text-btn">归档</a>
+                        <a href="#" class="color-text-btn active">归档</a>
                     </div>
                     <button class="color-text-btn block lg:hidden" id="navbtn">
                         <svg
@@ -71,9 +71,9 @@
                         class="flex flex-col gap-4 w-full text-lg capitalize tracking-wide py-2 px-8"
                     >
                         <a href="#" class="color-text-btn">专栏</a>
-                        <a href="#" class="color-text-btn active">分类</a>
+                        <a href="#" class="color-text-btn">分类</a>
                         <a href="#" class="color-text-btn">标签</a>
-                        <a href="#" class="color-text-btn">归档</a>
+                        <a href="#" class="color-text-btn active">归档</a>
                     </div>
                 </div>
             </div>
@@ -85,38 +85,59 @@
             <main class="color-text-content">
                 <div class="column-info w-full px-4 lg:px-8 py-8 tracking-wide">
                     <div class="text-2xl lg:text-4xl font-semibold pb-2">
-                        分类页面
+                        Unity 开发经验
                     </div>
                     <div class="text-lg lg:text-xl">
-                        <p>暂没有直接隶属于本分类的文章。</p>
                         <p>
-                            这是分类的根目录，您可以访问以下子链接以查看子分类和文章。
+                            本专栏为作者在研究（游玩）Unity
+                            引擎的时候遇到的问题的集合。
                         </p>
                     </div>
-                    <div class="flex flex-col gap-4 py-2 text-lg lg:text-xl">
-                        <a class="color-text-btn" href="">
-                            <div
-                                class="grid grid-cols-[max-content_1fr] gap-2 items-center"
-                            >
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24"
-                                    width="24"
-                                    height="24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="2"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                >
-                                    <path d="M5 12h14"></path>
-                                    <path d="M13 5l7 7-7 7"></path>
-                                </svg>
-                                Unity 开发
+                </div>
+                <section
+                    class="w-full px-4 lg:px-8 py-8 grid grid-cols-[max-content_1fr] gap-4 lg:gap-8"
+                >
+                    <div
+                        class="text-2xl lg:text-4xl font-semibold font-sans sticky top-24 lg:top-28 h-fit"
+                    >
+                        2026
+                    </div>
+                    <div class="archive-cards">
+                        <a
+                            class="archive-card-item"
+                            href="./../articles/2026/07/12/testarticle1/"
+                        >
+                            <div class="text-2xl lg:text-4xl font-bold pb-1">
+                                Unity 在安卓平台使用 SQLite
+                            </div>
+                            <div class="text-sm lg:text-base">
+                                2026年7月21日星期二
+                            </div>
+                        </a>
+                        <a
+                            class="archive-card-item"
+                            href="./../articles/2026/07/12/testarticle1/"
+                        >
+                            <div class="text-2xl lg:text-4xl font-bold pb-1">
+                                Unity 在安卓平台使用 SQLite
+                            </div>
+                            <div class="text-sm lg:text-base">
+                                2026年7月21日星期二
+                            </div>
+                        </a>
+                        <a
+                            class="archive-card-item"
+                            href="./../articles/2026/07/12/testarticle1/"
+                        >
+                            <div class="text-2xl lg:text-4xl font-bold pb-1">
+                                Unity 在安卓平台使用 SQLite
+                            </div>
+                            <div class="text-sm lg:text-base">
+                                2026年7月21日星期二
                             </div>
                         </a>
                     </div>
-                </div>
+                </section>
                 <section
                     class="w-full px-4 lg:px-8 py-8 grid grid-cols-[max-content_1fr] gap-4 lg:gap-8"
                 >

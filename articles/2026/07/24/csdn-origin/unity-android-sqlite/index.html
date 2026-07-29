@@ -267,14 +267,14 @@
 <h1 id="实践步骤"><a href="#实践步骤" class="headerlink" title="实践步骤"></a>实践步骤</h1><h2 id="必要组件"><a href="#必要组件" class="headerlink" title="必要组件"></a>必要组件</h2><h3 id="Mono-Data-Sqlite-dll"><a href="#Mono-Data-Sqlite-dll" class="headerlink" title="Mono.Data.Sqlite.dll"></a>Mono.Data.Sqlite.dll</h3><p>自己去unity编辑器的安装路径里面寻找和自己unity版本对应的文件。<br>我的文件放在：<code>${UnityEditor安装路径}\Data\MonoBleedingEdge\lib\mono\gac\Mono.Data.Sqlite\4.0.0.0__0738eb9f132ed756\Mono.Data.Sqlite.dll</code><br>把该文件复制到你的项目下Assets/Plugins文件夹下面（没有该文件夹就自己创建一个）</p>
 <h3 id="System-Data-dll"><a href="#System-Data-dll" class="headerlink" title="System.Data.dll"></a>System.Data.dll</h3><p>自己去unity编辑器的安装路径里面寻找和自己unity版本对应的文件。<br>我的文件放在：<code>${UnityEditor安装路径}\Data\MonoBleedingEdge\lib\mono\unity_web\System.Data.dll</code><br>把该文件复制到你的项目下Assets/Plugins文件夹下面（没有该文件夹就自己创建一个）</p>
 <h3 id="sqlite3-dll"><a href="#sqlite3-dll" class="headerlink" title="sqlite3.dll"></a>sqlite3.dll</h3><p>这个文件要去<a target="_blank" rel="noopener" href="https://www.sqlite.org/download.html">SQLite官网</a>上下载，把以下显示的两个下载下来：</p>
-<img src="/articles/2026/07/24/unity-android-sqlite/p1.png" class="" title="sqlite3.dll 文件">
+<img src="/articles/2026/07/24/csdn-origin/unity-android-sqlite/p1.png" class="" title="sqlite3.dll 文件">
 
 <p>把下载下来的两个压缩包解压后，就可以看到sqlite3.dll了，把该文件复制到你的项目下<code>Assets/Plugins</code>文件夹下面（没有该文件夹就自己创建一个）</p>
 <h3 id="libsqlite3-so"><a href="#libsqlite3-so" class="headerlink" title="libsqlite3.so"></a>libsqlite3.so</h3><p>这个在这篇文章的资源绑定中寻找（应该会显示在文章顶部）<br>把该文件复制到你的项目下<code>Assets/Plugins/Android</code>文件夹下面（没有该文件夹就自己创建一个）<br>最后你的项目下面应该有这些：</p>
-<img src="/articles/2026/07/24/unity-android-sqlite/p2.png" class="" title="项目资源树">
+<img src="/articles/2026/07/24/csdn-origin/unity-android-sqlite/p2.png" class="" title="项目资源树">
 
 <h2 id="创建脚本"><a href="#创建脚本" class="headerlink" title="创建脚本"></a>创建脚本</h2><p>新建 C# 脚本复制下面代码：</p>
-<pre class="shiki dark-plus"><div class="caption"><span>DataBase.cs | highlight-lines:1,2,3 | lang:txt</span></div><code><span class="line"><span style="color:#569CD6">public</span><span style="color:#569CD6"> class</span><span style="color:#4EC9B0"> DataBaseManager</span></span>
+<pre class="shiki dark-plus"><div class="caption"><span>DataBase.cs | lang:C#</span></div><code><span class="line"><span style="color:#569CD6">public</span><span style="color:#569CD6"> class</span><span style="color:#4EC9B0"> DataBaseManager</span></span>
 <span class="line"><span style="color:#D4D4D4">{</span></span>
 <span class="line"><span style="color:#6A9955">    /// </span><span style="color:#808080">&lt;</span><span style="color:#569CD6">summary</span><span style="color:#808080">&gt;</span></span>
 <span class="line"><span style="color:#6A9955">    /// 数据库链接</span></span>
@@ -417,25 +417,7 @@
 <span class="line"><span style="color:#D4D4D4">    }</span></span>
 <span class="line"><span style="color:#D4D4D4">}</span></span></code></pre>
 
-<pre class="shiki dark-plus"><div class="caption"><span>main.py | highlight-lines:1,2,9</span></div><code><span class="line"><span style="color:#C586C0">import</span><span style="color:#D4D4D4"> sys</span></span>
-<span class="line"><span style="color:#C586C0">from</span><span style="color:#D4D4D4"> flask </span><span style="color:#C586C0">import</span><span style="color:#D4D4D4"> Flask, jsonify</span></span>
-<span class="line"><span style="color:#DCDCAA">@app.route</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">'/train_stream/&lt;arg&gt;'</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">methods</span><span style="color:#D4D4D4">=[</span><span style="color:#CE9178">'GET'</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">'POST'</span><span style="color:#D4D4D4">])</span></span>
-<span class="line"><span style="color:#569CD6">def</span><span style="color:#DCDCAA"> train_stream</span><span style="color:#D4D4D4">(</span><span style="color:#9CDCFE">arg</span><span style="color:#D4D4D4">):</span></span>
-<span class="line"><span style="color:#DCDCAA">    print</span><span style="color:#D4D4D4">(</span><span style="color:#569CD6">f</span><span style="color:#CE9178">"PY --&gt; Invoked </span><span style="color:#569CD6">{</span><span style="color:#D4D4D4">train_stream.</span><span style="color:#9CDCFE">__name__</span><span style="color:#569CD6">}</span><span style="color:#CE9178">"</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">flush</span><span style="color:#D4D4D4">=</span><span style="color:#569CD6">True</span><span style="color:#D4D4D4">)</span></span>
-<span class="line"><span style="color:#DCDCAA">    print</span><span style="color:#D4D4D4">(</span><span style="color:#569CD6">f</span><span style="color:#CE9178">"PY GET PARAMS: </span><span style="color:#569CD6">{</span><span style="color:#D4D4D4">arg</span><span style="color:#569CD6">}</span><span style="color:#CE9178">"</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">flush</span><span style="color:#D4D4D4">=</span><span style="color:#569CD6">True</span><span style="color:#D4D4D4">)</span></span>
-<span class="line"><span style="color:#D4D4D4">    train_s()</span></span>
-<span class="line"><span style="color:#C586C0">    return</span><span style="color:#D4D4D4"> jsonify({</span><span style="color:#CE9178">"successful"</span><span style="color:#D4D4D4">:</span><span style="color:#CE9178">"0"</span><span style="color:#D4D4D4">})</span></span>
-<span class="line"><span style="color:#C586C0">if</span><span style="color:#9CDCFE"> __name__</span><span style="color:#D4D4D4"> == </span><span style="color:#CE9178">'__main__'</span><span style="color:#D4D4D4">:</span></span>
-<span class="line"><span style="color:#D4D4D4">    port = sys.argv[</span><span style="color:#B5CEA8">1</span><span style="color:#D4D4D4">]</span></span>
-<span class="line"><span style="color:#DCDCAA">    print</span><span style="color:#D4D4D4">(</span><span style="color:#569CD6">f</span><span style="color:#CE9178">"Running on port </span><span style="color:#569CD6">{</span><span style="color:#D4D4D4">port</span><span style="color:#569CD6">}</span><span style="color:#CE9178">"</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">flush</span><span style="color:#D4D4D4">=</span><span style="color:#569CD6">True</span><span style="color:#D4D4D4">)</span></span>
-<span class="line"><span style="color:#D4D4D4">    app.run(</span><span style="color:#9CDCFE">host</span><span style="color:#D4D4D4">=</span><span style="color:#CE9178">'127.0.0.1'</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">port</span><span style="color:#D4D4D4">=</span><span style="color:#4EC9B0">int</span><span style="color:#D4D4D4">(port))</span></span></code></pre>
-
-<pre class="shiki dark-plus"><div class="caption"><span>|highlight-lines:3</span></div><code><span class="line"><span style="color:#DCDCAA">hexo</span><span style="color:#CE9178"> clean</span></span>
-<span class="line"><span style="color:#DCDCAA">hexo</span><span style="color:#CE9178"> g</span></span>
-<span class="line"><span style="color:#DCDCAA">hexo</span><span style="color:#CE9178"> s</span></span>
-<span class="line"><span style="color:#DCDCAA">npm</span><span style="color:#CE9178"> install</span></span></code></pre>
-
-<h2 id="创建Sqlite数据库文件"><a href="#创建Sqlite数据库文件" class="headerlink" title="创建Sqlite数据库文件"></a>创建Sqlite数据库文件</h2><p>这里我使用了<a target="_blank" rel="noopener" href="https://sqlitestudio.pl/">SQLiteStudio</a>，用它创建数据库，并把数据库文件放在你的项目下面的<code>Assets/StreamingAssets</code>文件夹下（没有该文件夹就自己创建一个）</p>
+<h2 id="创建Sqlite数据库文件"><a href="#创建Sqlite数据库文件" class="headerlink" title="创建Sqlite数据库文件"></a>创建Sqlite数据库文件</h2><p>这里我使用了 <a target="_blank" rel="noopener" href="https://sqlitestudio.pl/">SQLiteStudio</a> ，用它创建数据库，并把数据库文件放在你的项目下面的<code>Assets/StreamingAssets</code>文件夹下（没有该文件夹就自己创建一个）</p>
 <h1 id="使用案例"><a href="#使用案例" class="headerlink" title="使用案例"></a>使用案例</h1><p>首先调用<code>ConnectingDatabase(string name)</code>连接到数据库<br>之后使用<code>ExecuteQuery(string sqlQuery)</code>执行SQL命令<br>同时也可以使用<code>ReadFullTable_ToString(string tableName)和ReadFullTable(string tableName)</code>快速调用整个表格</p>
 </body></html>
         </article>

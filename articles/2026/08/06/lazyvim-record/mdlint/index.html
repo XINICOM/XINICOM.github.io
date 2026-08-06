@@ -89,7 +89,7 @@
 <div class="aside-resize-top mt-16 lg:mt-20 border-b color-border color-text-content">
     
     <div class="article-header">
-        <div class="article-title">LazyVim 里使用 im-select.exe</div>
+        <div class="article-title">关闭 MD025 报错</div>
         <!-- <img
                     class="article-cover"
                     src="./cover.png"
@@ -110,6 +110,10 @@
                 
                 <a class="color-text-btn" href="/tags/LazyVim/" target="_blank">
                     <div class="flex flex-row gap-1 items-center article-tag-item">LazyVim</div>
+                </a>
+                
+                <a class="color-text-btn" href="/tags/markdown/" target="_blank">
+                    <div class="flex flex-row gap-1 items-center article-tag-item">markdown</div>
                 </a>
                 
             </div>
@@ -147,7 +151,7 @@
         </div>
         <div class="article-expect_reading_time">
             <div class="px-2 border-r-2 color-border text-right">阅读时长</div>
-            <div class="px-2">2 分钟</div>
+            <div class="px-2">1 分钟</div>
         </div>
     </div>
 </div>
@@ -170,103 +174,61 @@
     <main class="w-full min-w-0 break-words">
         <article class="text-body color-text-content pb-16 pt-0" tocSource>
             <!-- 直接包含生成器的生成内容，具体的结构由前端 JS 渲染 -->
-            <html><head></head><body><h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>本文介绍如何在 LazyVim 中使用 im-select 这个软件：</p>
-<ol>
-<li>进入 LazyVim 时切换为英文输入法</li>
-<li>退出 LazyVim 时切换为中文输入法</li>
-<li>进入 INSERT 模式等输入模式时切换为中文输入法</li>
-<li>进入 INSERT 模式等输入模式时切换为英文输入法</li>
-</ol>
-<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><h2 id="开启多个输入法"><a href="#开启多个输入法" class="headerlink" title="开启多个输入法"></a>开启多个输入法</h2><ol>
-<li>进入 Windows 的 <code>设置 &gt; 时间和语言</code> 在语言选项卡中添加语言，使同时有简中和英语两个语言包<br>（出现“您的 Windows 许可证仅支持一种显示语言”也无妨）</li>
-<li>在英语语言包右侧的 <code>···</code> 处点击 <code>语言选项</code>，滑动到底部添加键盘，确保<strong>英语语言包有一套键盘配置</strong></li>
-<li><code>设置 &gt; 时间和语言 &gt; 输入 &gt; 高级键盘设置</code> 勾选 <code>允许我为每个应用窗口使用不同的输入法</code></li>
-</ol>
-<p>如此当你按下 <code>&lt;win&gt;&lt;space&gt;</code> 时应该会发现输入法改为了 <code>ENG</code></p>
-<h2 id="安装-im-select-exe"><a href="#安装-im-select-exe" class="headerlink" title="安装 im-select.exe"></a>安装 im-select.exe</h2><p>在 <a target="_blank" rel="noopener" href="https://github.com/daipeihust/im-select">GitHub im-select 仓库</a> 处提供了 <a target="_blank" rel="noopener" href="https://github.com/daipeihust/im-select/raw/master/win/out/x86/im-select.exe">下载连接</a>，将下载下来的 im-select.exe 放在任何一个位置，并且记录这个位置</p>
-<p>你可以在终端尝试调用：</p>
-<pre class="shiki dark-plus"><div class="caption"><span>| lang:PowerShell</span></div><code><span class="line"><span style="color:#D4D4D4">im-select</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A9955"># 这会按照现在的输入法返回不同的值</span></span>
-<span class="line"><span style="color:#6A9955"># 一般来说中文为 2052；英文为 1033</span></span>
-<span class="line"><span style="color:#6A9955"># 若是你的返回值不同则需要更改下面的 lua 代码</span></span></code></pre>
+            <html><head></head><body><h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>若安装 markdown 的 lsp 可能在编辑 md 文件时会出现 <code>error MD025</code> 字样的报错，其由于不允许出现多个一级标题而产生<br>（YAML Front Matter 中的 title 属性可能也会被解析成一个一级标题）</p>
+<p>本文介绍如何避免在编辑 markdown 文件时出现缓冲区中之前输入过的文本进入自动补全提示框中</p>
+<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><p>在 <code>$env:LOCALAPPDATA\nvim\lua\plugins\lint.lua</code> 中添加：</p>
+<pre class="shiki dark-plus"><div class="caption"><span>lint.lua | lang:lua</span></div><code><span class="line"><span style="color:#C586C0">return</span><span style="color:#D4D4D4"> {</span></span>
+<span class="line"><span style="color:#D4D4D4">	{</span></span>
+<span class="line"><span style="color:#CE9178">		"mfussenegger/nvim-lint"</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">		opts</span><span style="color:#D4D4D4"> = {</span></span>
+<span class="line"><span style="color:#9CDCFE">			linters</span><span style="color:#D4D4D4"> = {</span></span>
+<span class="line"><span style="color:#D4D4D4">				[</span><span style="color:#CE9178">"markdownlint-cli2"</span><span style="color:#D4D4D4">] = {</span></span>
+<span class="line"><span style="color:#9CDCFE">					args</span><span style="color:#D4D4D4"> = { </span><span style="color:#CE9178">"--disable"</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">"MD025"</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">"--" </span><span style="color:#D4D4D4">},</span></span>
+<span class="line"><span style="color:#D4D4D4">				},</span></span>
+<span class="line"><span style="color:#D4D4D4">			},</span></span>
+<span class="line"><span style="color:#D4D4D4">		},</span></span>
+<span class="line"><span style="color:#D4D4D4">	},</span></span>
+<span class="line"><span style="color:#D4D4D4">}</span></span></code></pre>
 
-<p>通过调用 <code>im-select 1033</code> 或者 <code>im-select 2052</code> 则可以切换当前的输入法</p>
-<h2 id="Lazyvim-配置"><a href="#Lazyvim-配置" class="headerlink" title="Lazyvim 配置"></a>Lazyvim 配置</h2><p>在 <code>$env:LOCALAPPDATA\nvim\lua\config\autocmds.lua</code> 文件中添加：</p>
-<pre class="shiki dark-plus"><div class="caption"><span>autocmd.lua(partial) | lang:lua</span></div><code><span class="line"><span style="color:#6A9955">-- 自动切换输入法</span></span>
-<span class="line"><span style="color:#569CD6">local</span><span style="color:#9CDCFE"> imselect</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">"${输入你下载的 im-select.exe 的位置}"</span></span>
-<span class="line"><span style="color:#6A9955">-- 可能要按照你的 im-select 返回值更改下面的两个参数</span></span>
-<span class="line"><span style="color:#569CD6">local</span><span style="color:#9CDCFE"> eng_im</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">"1033"</span></span>
-<span class="line"><span style="color:#569CD6">local</span><span style="color:#9CDCFE"> ch_im</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">"2052"</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#9CDCFE">vim</span><span style="color:#D4D4D4">.</span><span style="color:#4EC9B0">api</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">nvim_create_augroup</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"AutoSwitchIM"</span><span style="color:#D4D4D4">, { </span><span style="color:#9CDCFE">clear</span><span style="color:#D4D4D4"> = </span><span style="color:#569CD6">true</span><span style="color:#D4D4D4"> })</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#9CDCFE">vim</span><span style="color:#D4D4D4">.</span><span style="color:#4EC9B0">api</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">nvim_create_autocmd</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"InsertEnter"</span><span style="color:#D4D4D4">, {</span></span>
-<span class="line"><span style="color:#9CDCFE">	group</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">"AutoSwitchIM"</span><span style="color:#D4D4D4">,</span></span>
-<span class="line"><span style="color:#9CDCFE">	pattern</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">"*"</span><span style="color:#D4D4D4">,</span></span>
-<span class="line"><span style="color:#DCDCAA">	callback</span><span style="color:#D4D4D4"> = </span><span style="color:#C586C0">function</span><span style="color:#D4D4D4">()</span></span>
-<span class="line"><span style="color:#9CDCFE">		vim</span><span style="color:#D4D4D4">.</span><span style="color:#4EC9B0">fn</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">jobstart</span><span style="color:#D4D4D4">({ </span><span style="color:#9CDCFE">imselect</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">ch_im</span><span style="color:#D4D4D4"> })</span></span>
-<span class="line"><span style="color:#C586C0">	end</span><span style="color:#D4D4D4">,</span></span>
-<span class="line"><span style="color:#D4D4D4">})</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#9CDCFE">vim</span><span style="color:#D4D4D4">.</span><span style="color:#4EC9B0">api</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">nvim_create_autocmd</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"InsertLeave"</span><span style="color:#D4D4D4">, {</span></span>
-<span class="line"><span style="color:#9CDCFE">	group</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">"AutoSwitchIM"</span><span style="color:#D4D4D4">,</span></span>
-<span class="line"><span style="color:#9CDCFE">	pattern</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">"*"</span><span style="color:#D4D4D4">,</span></span>
-<span class="line"><span style="color:#DCDCAA">	callback</span><span style="color:#D4D4D4"> = </span><span style="color:#C586C0">function</span><span style="color:#D4D4D4">()</span></span>
-<span class="line"><span style="color:#9CDCFE">		vim</span><span style="color:#D4D4D4">.</span><span style="color:#4EC9B0">fn</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">jobstart</span><span style="color:#D4D4D4">({ </span><span style="color:#9CDCFE">imselect</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">eng_im</span><span style="color:#D4D4D4"> })</span></span>
-<span class="line"><span style="color:#C586C0">	end</span><span style="color:#D4D4D4">,</span></span>
-<span class="line"><span style="color:#D4D4D4">})</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#9CDCFE">vim</span><span style="color:#D4D4D4">.</span><span style="color:#4EC9B0">api</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">nvim_create_autocmd</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"VimEnter"</span><span style="color:#D4D4D4">, {</span></span>
-<span class="line"><span style="color:#9CDCFE">	group</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">"AutoSwitchIM"</span><span style="color:#D4D4D4">,</span></span>
-<span class="line"><span style="color:#9CDCFE">	pattern</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">"*"</span><span style="color:#D4D4D4">,</span></span>
-<span class="line"><span style="color:#DCDCAA">	callback</span><span style="color:#D4D4D4"> = </span><span style="color:#C586C0">function</span><span style="color:#D4D4D4">()</span></span>
-<span class="line"><span style="color:#9CDCFE">		vim</span><span style="color:#D4D4D4">.</span><span style="color:#4EC9B0">fn</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">jobstart</span><span style="color:#D4D4D4">({ </span><span style="color:#9CDCFE">imselect</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">eng_im</span><span style="color:#D4D4D4"> })</span></span>
-<span class="line"><span style="color:#C586C0">	end</span><span style="color:#D4D4D4">,</span></span>
-<span class="line"><span style="color:#D4D4D4">})</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#9CDCFE">vim</span><span style="color:#D4D4D4">.</span><span style="color:#4EC9B0">api</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">nvim_create_autocmd</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"VimLeave"</span><span style="color:#D4D4D4">, {</span></span>
-<span class="line"><span style="color:#9CDCFE">	group</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">"AutoSwitchIM"</span><span style="color:#D4D4D4">,</span></span>
-<span class="line"><span style="color:#9CDCFE">	pattern</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">"*"</span><span style="color:#D4D4D4">,</span></span>
-<span class="line"><span style="color:#DCDCAA">	callback</span><span style="color:#D4D4D4"> = </span><span style="color:#C586C0">function</span><span style="color:#D4D4D4">()</span></span>
-<span class="line"><span style="color:#9CDCFE">		vim</span><span style="color:#D4D4D4">.</span><span style="color:#4EC9B0">fn</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">jobstart</span><span style="color:#D4D4D4">({ </span><span style="color:#9CDCFE">imselect</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">ch_im</span><span style="color:#D4D4D4"> })</span></span>
-<span class="line"><span style="color:#C586C0">	end</span><span style="color:#D4D4D4">,</span></span>
-<span class="line"><span style="color:#D4D4D4">})</span></span></code></pre>
+<blockquote>
+<p>[!WRNING] 可能错误<br>由于在使用这个方法后似乎所有的错误检查都消失了，<br>该方法可能是错误的，可能会导致插件无法正确加载</p>
+</blockquote>
 </body></html>
         </article>
         
         <div class="column-link px-8 py-8 border-t color-border">
             <div class="text-lg lg:text-xl font-semibold pb-2 lg:pb-4">
                 本文属于 
-                <a class="color-text-btn" href="/columns/lazyvim-record/"> LazyVim 使用记录 </a>
+                LazyVim 使用记录
                 
                 专栏中的第
-                2
+                4
                 篇
             </div>
             <div class="grid grid-cols-2 gap-2 lg:gap-8">
                 
-                <a href="/articles/2026/08/06/lazyvim-record/install-lazyvim/" class="text-left color-text-btn border-2 rounded-md color-border">
+                <a href="/articles/2026/08/06/lazyvim-record/blink-md-buffer/" class="text-left color-text-btn border-2 rounded-md color-border">
                     <div class="grid grid-cols-[max-content_1fr] gap-2 lg:gap-4 py-1 pl-1">
                         <svg class="w-6 h-6 lg:w-7 lg:h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="15 18 9 12 15 6" />
                         </svg>
                         <div class="grid grid-rows-[auto_auto] gap-1 lg:gap-2">
                             <div class="text-base lg:text-lg">上一篇文章</div>
-                            <div class="text-sm lg:text-base">安装 LazyVim</div>
+                            <div class="text-sm lg:text-base">LazyVim 禁用缓冲区内容提示</div>
                         </div>
                     </div>
                 </a>
                 
                 
-                <a href="/articles/2026/08/06/lazyvim-record/blink-md-buffer/" class="text-right color-text-btn border-2 rounded-md color-border">
+                <a href="/columns/lazyvim-record/" class="text-right color-text-btn border-2 rounded-md color-border">
                     <div class="grid grid-cols-[1fr_max-content] gap-2 lg:gap-4 py-1 pr-1">
                         <div class="grid grid-rows-[auto_auto] gap-1 lg:gap-2">
-                            <div class="text-base lg:text-lg">下一篇文章</div>
-                            <div class="text-sm lg:text-base">LazyVim 禁用缓冲区内容提示</div>
+                            <div class="text-base lg:text-lg">专栏标题页</div>
+                            <div class="text-sm lg:text-base">LazyVim 使用记录</div>
                         </div>
                         <svg class="w-6 h-6 lg:w-7 lg:h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="9 18 15 12 9 6" />
+                            <path d="M5 12h14"></path>
+                            <path d="M13 5l7 7-7 7"></path>
                         </svg>
                     </div>
                 </a>
@@ -293,13 +255,13 @@
                             <a href="/articles/2026/08/06/lazyvim-record/install-lazyvim/" class="toc-item"> 安装 LazyVim </a>
                             
                              
-                            <span class="text-textPrimary-light dark:text-textPrimary-dark font-semibold"> LazyVim 里使用 im-select.exe </span>
+                            <a href="/articles/2026/08/06/lazyvim-record/lazyvim-imselect/" class="toc-item"> LazyVim 里使用 im-select.exe </a>
                             
                              
                             <a href="/articles/2026/08/06/lazyvim-record/blink-md-buffer/" class="toc-item"> LazyVim 禁用缓冲区内容提示 </a>
                             
                              
-                            <a href="/articles/2026/08/06/lazyvim-record/mdlint/" class="toc-item"> 关闭 MD025 报错 </a>
+                            <span class="text-textPrimary-light dark:text-textPrimary-dark font-semibold"> 关闭 MD025 报错 </span>
                             
                             
                         </div>

@@ -88,30 +88,8 @@
         <!-- TITLE -->
 <div class="aside-resize-top mt-16 lg:mt-20 border-b color-border color-text-content">
     
-    <div class="callout note">
-        <div class="max-w-fit mx-auto">
-            <div class="callout-title">本文囤积时间较长</div>
-            <!-- <p>
-                由于该平台的建设时间较晚，故而此处发表的文章中分享的技术，不保证在此处的发布日期时仍然有效。
-            </p>
-            <p>
-                原文
-                <a
-                    class="color-text-btn"
-                    href="https://blog.csdn.net/weixin_74545283/article/details/132020069?spm=1011.2124.3001.6209"
-                    target="_blank"
-                    >Unity 在安卓平台使用 SQLite</a
-                >
-                由本人于 2025年2月12日 发布在 CSDN 平台。
-            </p> -->
-            <p>由于该平台的建设时间较晚，故而本文内容可能已经失效。</p>
-<p>作者偶然间发现本文囤积在文件夹中，推测完成时间为 2025 年。</p>
-
-        </div>
-    </div>
-    
     <div class="article-header">
-        <div class="article-title">VS 使用 Git 推送 Github</div>
+        <div class="article-title">安装 LazyVim</div>
         <!-- <img
                     class="article-cover"
                     src="./cover.png"
@@ -122,20 +100,12 @@
             <div class="px-2 border-r-2 color-border text-right">标签</div>
             <div class="article-tags-content">
                 
-                <a class="color-text-btn" href="/tags/Windows/" target="_blank">
-                    <div class="flex flex-row gap-1 items-center article-tag-item">Windows</div>
+                <a class="color-text-btn" href="/tags/NeoVim/" target="_blank">
+                    <div class="flex flex-row gap-1 items-center article-tag-item">NeoVim</div>
                 </a>
                 
-                <a class="color-text-btn" href="/tags/Git/" target="_blank">
-                    <div class="flex flex-row gap-1 items-center article-tag-item">Git</div>
-                </a>
-                
-                <a class="color-text-btn" href="/tags/GitHub/" target="_blank">
-                    <div class="flex flex-row gap-1 items-center article-tag-item">GitHub</div>
-                </a>
-                
-                <a class="color-text-btn" href="/tags/VS/" target="_blank">
-                    <div class="flex flex-row gap-1 items-center article-tag-item">VS</div>
+                <a class="color-text-btn" href="/tags/LazyVim/" target="_blank">
+                    <div class="flex flex-row gap-1 items-center article-tag-item">LazyVim</div>
                 </a>
                 
             </div>
@@ -158,15 +128,22 @@
         </div>
         
         
+        <div class="article-columns">
+            <div class="px-2 border-r-2 color-border text-right">专栏</div>
+            <div class="px-2">
+                <a class="color-text-btn" href="/columns/lazyvim-record/"> LazyVim 使用记录 </a>
+            </div>
+        </div>
+        
         <div class="article-publish_time">
             <div class="px-2 border-r-2 color-border text-right">创建日期</div>
             <div class="px-2">
-                <time datetime="2026-08-02"> 2026年08月02日 星期日 </time>
+                <time datetime="2026-08-06"> 2026年08月06日 星期四 </time>
             </div>
         </div>
         <div class="article-expect_reading_time">
             <div class="px-2 border-r-2 color-border text-right">阅读时长</div>
-            <div class="px-2">2 分钟</div>
+            <div class="px-2">1 分钟</div>
         </div>
     </div>
 </div>
@@ -189,58 +166,51 @@
     <main class="w-full min-w-0 break-words">
         <article class="text-body color-text-content pb-16 pt-0" tocSource>
             <!-- 直接包含生成器的生成内容，具体的结构由前端 JS 渲染 -->
-            <html><head></head><body><div class="callout note">
-        <div class="callout-title">开发环境</div>
-        <div class="callout-content"><p>VS 版本：VS 2022<br>系统版本：Windows 11</p></div>
-    </div>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本文给出，本人在使用 VS 中内置的 Git 进行源代码管理将库推送至 Github 时遇见的问题，和对应解决方法。</p>
-<p>本文适用可能仅适用 VS 2022 自带的 Git 进行版本管理的开发者。</p>
-<h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>一般是因为请求超时导致，及 Git 没有使用你用的代理来推送。</p>
-<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><ol>
-<li><p>确认你用的代理，这里我用了 v2rayN<br><img src="/articles/2026/08/02/csdn-origin/vs-git-github/s-cs.png" alt="设置-参数设置"><br><img src="/articles/2026/08/02/csdn-origin/vs-git-github/h.png" alt="端口号"><br>可见我用的端口是 10808，同时确保 v2rayN 使用 <code>自动配置系统代理</code></p>
-</li>
-<li><p>系统代理设置<br><img src="/articles/2026/08/02/csdn-origin/vs-git-github/swd.png" alt="设置-网络和 Internet-使用代理服务器"><br><img src="/articles/2026/08/02/csdn-origin/vs-git-github/ds.png" alt="代理服务器配置"><br>我看着 v2rayN 上面写 http 端口为 <code>socks + 1</code> ，故这里写 10809。（如果不这么写能不能成功不确定）</p>
-</li>
-<li><p>配置 Git</p>
-<p> 因为 VS2022 自带 Git，故而要去找到 Git.exe 的文件夹，一般为 <code>C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\TeamFoundation\Team Explorer\Git\cmd</code> 中，在此文件夹打开 <code>PowerShell</code> ：</p>
- <pre class="shiki dark-plus"><div class="caption"><span>| lang:PowerShell</span></div><code><span class="line"><span style="color:#D4D4D4">git config --global http.proxy </span><span style="color:#CE9178">"socks5://127.0.0.1:10808"</span></span>
-<span class="line"><span style="color:#D4D4D4">git config --global https.proxy </span><span style="color:#CE9178">"socks5://127.0.0.1:10808"</span></span></code></pre>
+            <html><head></head><body><h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><h2 id="必要组件"><a href="#必要组件" class="headerlink" title="必要组件"></a>必要组件</h2><pre class="shiki dark-plus"><div class="caption"><span>| lang:PowerShell</span></div><code><span class="line"><span style="color:#D4D4D4">scoop install neovim git gcc ripgrep fd unzip tree-sitter luarocks</span></span></code></pre>
 
-<div class="callout note">
-        <div class="callout-title">NOTE</div>
-        <div class="callout-content"><p>​由于 v2rayN 是走 socks5 代理的，且我的端口是 10808 故如上；若是其他代理可以参考 <a target="_blank" rel="noopener" href="https://blog.csdn.net/HD243608836/article/details/127869482">GIT Proxy 一键设置代理让你的 git clone Github 再也不像百度云一样内行</a></p></div>
-    </div>
-<p> ​之后检查配置是否成功：</p>
- <pre class="shiki dark-plus"><div class="caption"><span>| lang:PowerShell</span></div><code><span class="line"><span style="color:#D4D4D4">git config --global -l</span></span></code></pre>
-
-<p> 应该有如下的项目：</p>
- <pre class="shiki dark-plus"><div class="caption"><span>| lang:PowerShell</span></div><code><span class="line"><span style="color:#D4D4D4">http.proxy=socks5://</span><span style="color:#B5CEA8">127.0</span><span style="color:#D4D4D4">.</span><span style="color:#B5CEA8">0.1</span><span style="color:#D4D4D4">:</span><span style="color:#B5CEA8">10808</span></span>
-<span class="line"><span style="color:#D4D4D4">https.proxy=socks5://</span><span style="color:#B5CEA8">127.0</span><span style="color:#D4D4D4">.</span><span style="color:#B5CEA8">0.1</span><span style="color:#D4D4D4">:</span><span style="color:#B5CEA8">10808</span></span></code></pre>
-
-<div class="callout tip">
-        <div class="callout-title">可能面临的报错</div>
-        <div class="callout-content">
-
-<pre class="shiki dark-plus"><div class="caption"><span>| lang:PowerShell</span></div><code><span class="line"><span style="color:#D4D4D4">error: cannot spawn more: No such file or directory</span></span>
-<span class="line"><span style="color:#D4D4D4">error: cannot spawn less: No such file or directory</span></span></code></pre>
-
-<p>解决方法是输入：</p>
-<pre class="shiki dark-plus"><div class="caption"><span>| lang:PowerShell</span></div><code><span class="line"><span style="color:#D4D4D4">git config --global core.pager </span><span style="color:#CE9178">''</span></span></code></pre></div>
-    </div>
-<div class="callout warning">
-        <div class="callout-title">WARNING</div>
-        <div class="callout-content"><p>参考 <a target="_blank" rel="noopener" href="https://www.cnblogs.com/outsrkem/p/14403449.html">Git 报错 error: cannot spawn more: No such file or directory</a></p>
-
-<p>上述的解决方法可能治标不治本</p>
-</div>
-    </div>
-<p> 就此应该可以正常推送了。</p>
-</li>
-</ol>
-<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>若出现 <code>Failed to connect to 127.0.0.1 port 7890 after 2021 ms: Couldn‘t connect to server</code> 等类似报错，说明代理设置不正确。</p>
-<p>若仍有问题无法解决可以参考以下文章：<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_40920751/article/details/121970779">github desktop 报 error: cannot spawn xxx: No such file or directory 的解决方法</a><br>​</p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h3 id="直接使用我的配置"><a href="#直接使用我的配置" class="headerlink" title="直接使用我的配置"></a>直接使用我的配置</h3><p><a target="_blank" rel="noopener" href="https://github.com/XINICOM/nvim.git">NeoVim Config</a> 放到 <code>$env:LOCALAPPDATA\nvim\</code> 下</p>
+<h3 id="一般配置"><a href="#一般配置" class="headerlink" title="一般配置"></a>一般配置</h3><p>可以参考官网 <a target="_blank" rel="noopener" href="https://www.lazyvim.org/installation">LazyVim Installation</a> 的步骤，这个步骤非常全面</p>
 </body></html>
         </article>
+        
+        <div class="column-link px-8 py-8 border-t color-border">
+            <div class="text-lg lg:text-xl font-semibold pb-2 lg:pb-4">
+                本文属于 
+                LazyVim 使用记录
+                
+                专栏中的第
+                1
+                篇
+            </div>
+            <div class="grid grid-cols-2 gap-2 lg:gap-8">
+                
+                <a href="/columns/lazyvim-record/" class="text-left color-text-btn border-2 rounded-md color-border">
+                    <div class="grid grid-cols-[max-content_1fr] gap-2 lg:gap-4 py-1 pl-1">
+                        <svg class="w-6 h-6 lg:w-7 lg:h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M19 12H5M12 19l-7-7 7-7"></path>
+                        </svg>
+                        <div class="grid grid-rows-[auto_auto] gap-1 lg:gap-2">
+                            <div class="text-base lg:text-lg">专栏标题页</div>
+                            <div class="text-sm lg:text-base">LazyVim 使用记录</div>
+                        </div>
+                    </div>
+                </a>
+                
+                
+                <a href="/articles/2026/08/06/lazyvim-record/lazyvim-imselect/" class="text-right color-text-btn border-2 rounded-md color-border">
+                    <div class="grid grid-cols-[1fr_max-content] gap-2 lg:gap-4 py-1 pr-1">
+                        <div class="grid grid-rows-[auto_auto] gap-1 lg:gap-2">
+                            <div class="text-base lg:text-lg">下一篇文章</div>
+                            <div class="text-sm lg:text-base">LazyVim 里使用 im-select.exe</div>
+                        </div>
+                        <svg class="w-6 h-6 lg:w-7 lg:h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 18 15 12 9 6" />
+                        </svg>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
         
     </main>
     <script src="/js/preToCodeBlock.js"></script>
@@ -250,6 +220,25 @@
         <div class="py-0 pt-0 sticky top-20">
             <aside class="aside-height-control-target flex flex-col text-sm">
                 <div class="overflow-y-scroll grow" style="overscroll-behavior: contain">
+                    
+                    <div class="pb-2 px-4">
+                        <div class="uppercase tracking-wider text-center pt-4 pb-2 sticky top-0 border-b color-border color-text-primary color-layer-0 font-semibold">
+                            <a class="color-text-btn" href="/columns/lazyvim-record/"> LazyVim 使用记录 </a>
+                            专栏
+                        </div>
+                        <div class="toc flex flex-col gap-4 w-full capitalize tracking-wide py-2 px-4">
+                             
+                            <span class="text-textPrimary-light dark:text-textPrimary-dark font-semibold"> 安装 LazyVim </span>
+                            
+                             
+                            <a href="/articles/2026/08/06/lazyvim-record/lazyvim-imselect/" class="toc-item"> LazyVim 里使用 im-select.exe </a>
+                            
+                             
+                            <a href="/articles/2026/08/06/lazyvim-record/blink-md-buffer/" class="toc-item"> LazyVim 禁用缓冲区内容提示 </a>
+                            
+                            
+                        </div>
+                    </div>
                     
                 </div>
             </aside>

@@ -202,35 +202,35 @@
 <span class="line"><span style="color:#9CDCFE">vim</span><span style="color:#D4D4D4">.</span><span style="color:#4EC9B0">api</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">nvim_create_augroup</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"AutoSwitchIM"</span><span style="color:#D4D4D4">, { </span><span style="color:#9CDCFE">clear</span><span style="color:#D4D4D4"> = </span><span style="color:#569CD6">true</span><span style="color:#D4D4D4"> })</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#9CDCFE">vim</span><span style="color:#D4D4D4">.</span><span style="color:#4EC9B0">api</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">nvim_create_autocmd</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"InsertEnter"</span><span style="color:#D4D4D4">, {</span></span>
-<span class="line"><span style="color:#9CDCFE"> group</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">"AutoSwitchIM"</span><span style="color:#D4D4D4">,</span></span>
-<span class="line"><span style="color:#9CDCFE"> pattern</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">"*"</span><span style="color:#D4D4D4">,</span></span>
-<span class="line"><span style="color:#DCDCAA"> callback</span><span style="color:#D4D4D4"> = </span><span style="color:#C586C0">function</span><span style="color:#D4D4D4">()</span></span>
-<span class="line"><span style="color:#9CDCFE">  vim</span><span style="color:#D4D4D4">.</span><span style="color:#4EC9B0">fn</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">jobstart</span><span style="color:#D4D4D4">({ </span><span style="color:#9CDCFE">imselect</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">ch_im</span><span style="color:#D4D4D4"> })</span></span>
-<span class="line"><span style="color:#C586C0"> end</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">    group</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">"AutoSwitchIM"</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">    pattern</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">"*"</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#DCDCAA">    callback</span><span style="color:#D4D4D4"> = </span><span style="color:#C586C0">function</span><span style="color:#D4D4D4">()</span></span>
+<span class="line"><span style="color:#9CDCFE">        vim</span><span style="color:#D4D4D4">.</span><span style="color:#4EC9B0">fn</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">jobstart</span><span style="color:#D4D4D4">({ </span><span style="color:#9CDCFE">imselect</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">ch_im</span><span style="color:#D4D4D4"> })</span></span>
+<span class="line"><span style="color:#C586C0">    end</span><span style="color:#D4D4D4">,</span></span>
 <span class="line"><span style="color:#D4D4D4">})</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#9CDCFE">vim</span><span style="color:#D4D4D4">.</span><span style="color:#4EC9B0">api</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">nvim_create_autocmd</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"InsertLeave"</span><span style="color:#D4D4D4">, {</span></span>
-<span class="line"><span style="color:#9CDCFE"> group</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">"AutoSwitchIM"</span><span style="color:#D4D4D4">,</span></span>
-<span class="line"><span style="color:#9CDCFE"> pattern</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">"*"</span><span style="color:#D4D4D4">,</span></span>
-<span class="line"><span style="color:#DCDCAA"> callback</span><span style="color:#D4D4D4"> = </span><span style="color:#C586C0">function</span><span style="color:#D4D4D4">()</span></span>
-<span class="line"><span style="color:#9CDCFE">  vim</span><span style="color:#D4D4D4">.</span><span style="color:#4EC9B0">fn</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">jobstart</span><span style="color:#D4D4D4">({ </span><span style="color:#9CDCFE">imselect</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">eng_im</span><span style="color:#D4D4D4"> })</span></span>
-<span class="line"><span style="color:#C586C0"> end</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">    group</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">"AutoSwitchIM"</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">    pattern</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">"*"</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#DCDCAA">    callback</span><span style="color:#D4D4D4"> = </span><span style="color:#C586C0">function</span><span style="color:#D4D4D4">()</span></span>
+<span class="line"><span style="color:#9CDCFE">        vim</span><span style="color:#D4D4D4">.</span><span style="color:#4EC9B0">fn</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">jobstart</span><span style="color:#D4D4D4">({ </span><span style="color:#9CDCFE">imselect</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">eng_im</span><span style="color:#D4D4D4"> })</span></span>
+<span class="line"><span style="color:#C586C0">    end</span><span style="color:#D4D4D4">,</span></span>
 <span class="line"><span style="color:#D4D4D4">})</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#9CDCFE">vim</span><span style="color:#D4D4D4">.</span><span style="color:#4EC9B0">api</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">nvim_create_autocmd</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"VimEnter"</span><span style="color:#D4D4D4">, {</span></span>
-<span class="line"><span style="color:#9CDCFE"> group</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">"AutoSwitchIM"</span><span style="color:#D4D4D4">,</span></span>
-<span class="line"><span style="color:#9CDCFE"> pattern</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">"*"</span><span style="color:#D4D4D4">,</span></span>
-<span class="line"><span style="color:#DCDCAA"> callback</span><span style="color:#D4D4D4"> = </span><span style="color:#C586C0">function</span><span style="color:#D4D4D4">()</span></span>
-<span class="line"><span style="color:#9CDCFE">  vim</span><span style="color:#D4D4D4">.</span><span style="color:#4EC9B0">fn</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">jobstart</span><span style="color:#D4D4D4">({ </span><span style="color:#9CDCFE">imselect</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">eng_im</span><span style="color:#D4D4D4"> })</span></span>
-<span class="line"><span style="color:#C586C0"> end</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">    group</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">"AutoSwitchIM"</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">    pattern</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">"*"</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#DCDCAA">    callback</span><span style="color:#D4D4D4"> = </span><span style="color:#C586C0">function</span><span style="color:#D4D4D4">()</span></span>
+<span class="line"><span style="color:#9CDCFE">        vim</span><span style="color:#D4D4D4">.</span><span style="color:#4EC9B0">fn</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">jobstart</span><span style="color:#D4D4D4">({ </span><span style="color:#9CDCFE">imselect</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">eng_im</span><span style="color:#D4D4D4"> })</span></span>
+<span class="line"><span style="color:#C586C0">    end</span><span style="color:#D4D4D4">,</span></span>
 <span class="line"><span style="color:#D4D4D4">})</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#9CDCFE">vim</span><span style="color:#D4D4D4">.</span><span style="color:#4EC9B0">api</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">nvim_create_autocmd</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"VimLeave"</span><span style="color:#D4D4D4">, {</span></span>
-<span class="line"><span style="color:#9CDCFE"> group</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">"AutoSwitchIM"</span><span style="color:#D4D4D4">,</span></span>
-<span class="line"><span style="color:#9CDCFE"> pattern</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">"*"</span><span style="color:#D4D4D4">,</span></span>
-<span class="line"><span style="color:#DCDCAA"> callback</span><span style="color:#D4D4D4"> = </span><span style="color:#C586C0">function</span><span style="color:#D4D4D4">()</span></span>
-<span class="line"><span style="color:#9CDCFE">  vim</span><span style="color:#D4D4D4">.</span><span style="color:#4EC9B0">fn</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">jobstart</span><span style="color:#D4D4D4">({ </span><span style="color:#9CDCFE">imselect</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">ch_im</span><span style="color:#D4D4D4"> })</span></span>
-<span class="line"><span style="color:#C586C0"> end</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">    group</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">"AutoSwitchIM"</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">    pattern</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">"*"</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#DCDCAA">    callback</span><span style="color:#D4D4D4"> = </span><span style="color:#C586C0">function</span><span style="color:#D4D4D4">()</span></span>
+<span class="line"><span style="color:#9CDCFE">        vim</span><span style="color:#D4D4D4">.</span><span style="color:#4EC9B0">fn</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">jobstart</span><span style="color:#D4D4D4">({ </span><span style="color:#9CDCFE">imselect</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">ch_im</span><span style="color:#D4D4D4"> })</span></span>
+<span class="line"><span style="color:#C586C0">    end</span><span style="color:#D4D4D4">,</span></span>
 <span class="line"><span style="color:#D4D4D4">})</span></span></code></pre>
 </body></html>
         </article>

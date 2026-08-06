@@ -100,16 +100,16 @@
             <div class="px-2 border-r-2 color-border text-right">标签</div>
             <div class="article-tags-content">
                 
-                <a class="color-text-btn" href="/tags/Windows/" target="_blank">
-                    <div class="flex flex-row gap-1 items-center article-tag-item">Windows</div>
-                </a>
-                
                 <a class="color-text-btn" href="/tags/NeoVim/" target="_blank">
                     <div class="flex flex-row gap-1 items-center article-tag-item">NeoVim</div>
                 </a>
                 
                 <a class="color-text-btn" href="/tags/LazyVim/" target="_blank">
                     <div class="flex flex-row gap-1 items-center article-tag-item">LazyVim</div>
+                </a>
+                
+                <a class="color-text-btn" href="/tags/Windows/" target="_blank">
+                    <div class="flex flex-row gap-1 items-center article-tag-item">Windows</div>
                 </a>
                 
             </div>
@@ -202,35 +202,35 @@
 <span class="line"><span style="color:#9CDCFE">vim</span><span style="color:#D4D4D4">.</span><span style="color:#4EC9B0">api</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">nvim_create_augroup</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"AutoSwitchIM"</span><span style="color:#D4D4D4">, { </span><span style="color:#9CDCFE">clear</span><span style="color:#D4D4D4"> = </span><span style="color:#569CD6">true</span><span style="color:#D4D4D4"> })</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#9CDCFE">vim</span><span style="color:#D4D4D4">.</span><span style="color:#4EC9B0">api</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">nvim_create_autocmd</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"InsertEnter"</span><span style="color:#D4D4D4">, {</span></span>
-<span class="line"><span style="color:#9CDCFE">	group</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">"AutoSwitchIM"</span><span style="color:#D4D4D4">,</span></span>
-<span class="line"><span style="color:#9CDCFE">	pattern</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">"*"</span><span style="color:#D4D4D4">,</span></span>
-<span class="line"><span style="color:#DCDCAA">	callback</span><span style="color:#D4D4D4"> = </span><span style="color:#C586C0">function</span><span style="color:#D4D4D4">()</span></span>
-<span class="line"><span style="color:#9CDCFE">		vim</span><span style="color:#D4D4D4">.</span><span style="color:#4EC9B0">fn</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">jobstart</span><span style="color:#D4D4D4">({ </span><span style="color:#9CDCFE">imselect</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">ch_im</span><span style="color:#D4D4D4"> })</span></span>
-<span class="line"><span style="color:#C586C0">	end</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE"> group</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">"AutoSwitchIM"</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE"> pattern</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">"*"</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#DCDCAA"> callback</span><span style="color:#D4D4D4"> = </span><span style="color:#C586C0">function</span><span style="color:#D4D4D4">()</span></span>
+<span class="line"><span style="color:#9CDCFE">  vim</span><span style="color:#D4D4D4">.</span><span style="color:#4EC9B0">fn</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">jobstart</span><span style="color:#D4D4D4">({ </span><span style="color:#9CDCFE">imselect</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">ch_im</span><span style="color:#D4D4D4"> })</span></span>
+<span class="line"><span style="color:#C586C0"> end</span><span style="color:#D4D4D4">,</span></span>
 <span class="line"><span style="color:#D4D4D4">})</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#9CDCFE">vim</span><span style="color:#D4D4D4">.</span><span style="color:#4EC9B0">api</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">nvim_create_autocmd</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"InsertLeave"</span><span style="color:#D4D4D4">, {</span></span>
-<span class="line"><span style="color:#9CDCFE">	group</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">"AutoSwitchIM"</span><span style="color:#D4D4D4">,</span></span>
-<span class="line"><span style="color:#9CDCFE">	pattern</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">"*"</span><span style="color:#D4D4D4">,</span></span>
-<span class="line"><span style="color:#DCDCAA">	callback</span><span style="color:#D4D4D4"> = </span><span style="color:#C586C0">function</span><span style="color:#D4D4D4">()</span></span>
-<span class="line"><span style="color:#9CDCFE">		vim</span><span style="color:#D4D4D4">.</span><span style="color:#4EC9B0">fn</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">jobstart</span><span style="color:#D4D4D4">({ </span><span style="color:#9CDCFE">imselect</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">eng_im</span><span style="color:#D4D4D4"> })</span></span>
-<span class="line"><span style="color:#C586C0">	end</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE"> group</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">"AutoSwitchIM"</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE"> pattern</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">"*"</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#DCDCAA"> callback</span><span style="color:#D4D4D4"> = </span><span style="color:#C586C0">function</span><span style="color:#D4D4D4">()</span></span>
+<span class="line"><span style="color:#9CDCFE">  vim</span><span style="color:#D4D4D4">.</span><span style="color:#4EC9B0">fn</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">jobstart</span><span style="color:#D4D4D4">({ </span><span style="color:#9CDCFE">imselect</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">eng_im</span><span style="color:#D4D4D4"> })</span></span>
+<span class="line"><span style="color:#C586C0"> end</span><span style="color:#D4D4D4">,</span></span>
 <span class="line"><span style="color:#D4D4D4">})</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#9CDCFE">vim</span><span style="color:#D4D4D4">.</span><span style="color:#4EC9B0">api</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">nvim_create_autocmd</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"VimEnter"</span><span style="color:#D4D4D4">, {</span></span>
-<span class="line"><span style="color:#9CDCFE">	group</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">"AutoSwitchIM"</span><span style="color:#D4D4D4">,</span></span>
-<span class="line"><span style="color:#9CDCFE">	pattern</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">"*"</span><span style="color:#D4D4D4">,</span></span>
-<span class="line"><span style="color:#DCDCAA">	callback</span><span style="color:#D4D4D4"> = </span><span style="color:#C586C0">function</span><span style="color:#D4D4D4">()</span></span>
-<span class="line"><span style="color:#9CDCFE">		vim</span><span style="color:#D4D4D4">.</span><span style="color:#4EC9B0">fn</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">jobstart</span><span style="color:#D4D4D4">({ </span><span style="color:#9CDCFE">imselect</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">eng_im</span><span style="color:#D4D4D4"> })</span></span>
-<span class="line"><span style="color:#C586C0">	end</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE"> group</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">"AutoSwitchIM"</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE"> pattern</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">"*"</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#DCDCAA"> callback</span><span style="color:#D4D4D4"> = </span><span style="color:#C586C0">function</span><span style="color:#D4D4D4">()</span></span>
+<span class="line"><span style="color:#9CDCFE">  vim</span><span style="color:#D4D4D4">.</span><span style="color:#4EC9B0">fn</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">jobstart</span><span style="color:#D4D4D4">({ </span><span style="color:#9CDCFE">imselect</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">eng_im</span><span style="color:#D4D4D4"> })</span></span>
+<span class="line"><span style="color:#C586C0"> end</span><span style="color:#D4D4D4">,</span></span>
 <span class="line"><span style="color:#D4D4D4">})</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#9CDCFE">vim</span><span style="color:#D4D4D4">.</span><span style="color:#4EC9B0">api</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">nvim_create_autocmd</span><span style="color:#D4D4D4">(</span><span style="color:#CE9178">"VimLeave"</span><span style="color:#D4D4D4">, {</span></span>
-<span class="line"><span style="color:#9CDCFE">	group</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">"AutoSwitchIM"</span><span style="color:#D4D4D4">,</span></span>
-<span class="line"><span style="color:#9CDCFE">	pattern</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">"*"</span><span style="color:#D4D4D4">,</span></span>
-<span class="line"><span style="color:#DCDCAA">	callback</span><span style="color:#D4D4D4"> = </span><span style="color:#C586C0">function</span><span style="color:#D4D4D4">()</span></span>
-<span class="line"><span style="color:#9CDCFE">		vim</span><span style="color:#D4D4D4">.</span><span style="color:#4EC9B0">fn</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">jobstart</span><span style="color:#D4D4D4">({ </span><span style="color:#9CDCFE">imselect</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">ch_im</span><span style="color:#D4D4D4"> })</span></span>
-<span class="line"><span style="color:#C586C0">	end</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE"> group</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">"AutoSwitchIM"</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE"> pattern</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">"*"</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#DCDCAA"> callback</span><span style="color:#D4D4D4"> = </span><span style="color:#C586C0">function</span><span style="color:#D4D4D4">()</span></span>
+<span class="line"><span style="color:#9CDCFE">  vim</span><span style="color:#D4D4D4">.</span><span style="color:#4EC9B0">fn</span><span style="color:#D4D4D4">.</span><span style="color:#DCDCAA">jobstart</span><span style="color:#D4D4D4">({ </span><span style="color:#9CDCFE">imselect</span><span style="color:#D4D4D4">, </span><span style="color:#9CDCFE">ch_im</span><span style="color:#D4D4D4"> })</span></span>
+<span class="line"><span style="color:#C586C0"> end</span><span style="color:#D4D4D4">,</span></span>
 <span class="line"><span style="color:#D4D4D4">})</span></span></code></pre>
 </body></html>
         </article>
@@ -241,29 +241,29 @@
                 <a class="color-text-btn" href="/columns/lazyvim-record/"> LazyVim 使用记录 </a>
                 
                 专栏中的第
-                2
+                3
                 篇
             </div>
             <div class="grid grid-cols-2 gap-2 lg:gap-8">
                 
-                <a href="/articles/2026/08/06/lazyvim-record/install-lazyvim/" class="text-left color-text-btn border-2 rounded-md color-border">
+                <a href="/articles/2026/08/06/lazyvim-record/blink-md-buffer/" class="text-left color-text-btn border-2 rounded-md color-border">
                     <div class="grid grid-cols-[max-content_1fr] gap-2 lg:gap-4 py-1 pl-1">
                         <svg class="w-6 h-6 lg:w-7 lg:h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="15 18 9 12 15 6" />
                         </svg>
                         <div class="grid grid-rows-[auto_auto] gap-1 lg:gap-2">
                             <div class="text-base lg:text-lg">上一篇文章</div>
-                            <div class="text-sm lg:text-base">安装 LazyVim</div>
+                            <div class="text-sm lg:text-base">LazyVim 禁用缓冲区内容提示</div>
                         </div>
                     </div>
                 </a>
                 
                 
-                <a href="/articles/2026/08/06/lazyvim-record/blink-md-buffer/" class="text-right color-text-btn border-2 rounded-md color-border">
+                <a href="/articles/2026/08/06/lazyvim-record/mdlint/" class="text-right color-text-btn border-2 rounded-md color-border">
                     <div class="grid grid-cols-[1fr_max-content] gap-2 lg:gap-4 py-1 pr-1">
                         <div class="grid grid-rows-[auto_auto] gap-1 lg:gap-2">
                             <div class="text-base lg:text-lg">下一篇文章</div>
-                            <div class="text-sm lg:text-base">LazyVim 禁用缓冲区内容提示</div>
+                            <div class="text-sm lg:text-base">关闭 MD025 报错</div>
                         </div>
                         <svg class="w-6 h-6 lg:w-7 lg:h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="9 18 15 12 9 6" />
@@ -293,10 +293,10 @@
                             <a href="/articles/2026/08/06/lazyvim-record/install-lazyvim/" class="toc-item"> 安装 LazyVim </a>
                             
                              
-                            <span class="text-textPrimary-light dark:text-textPrimary-dark font-semibold"> LazyVim 里使用 im-select.exe </span>
+                            <a href="/articles/2026/08/06/lazyvim-record/blink-md-buffer/" class="toc-item"> LazyVim 禁用缓冲区内容提示 </a>
                             
                              
-                            <a href="/articles/2026/08/06/lazyvim-record/blink-md-buffer/" class="toc-item"> LazyVim 禁用缓冲区内容提示 </a>
+                            <span class="text-textPrimary-light dark:text-textPrimary-dark font-semibold"> LazyVim 里使用 im-select.exe </span>
                             
                              
                             <a href="/articles/2026/08/06/lazyvim-record/mdlint/" class="toc-item"> 关闭 MD025 报错 </a>

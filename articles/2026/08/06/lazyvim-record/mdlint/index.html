@@ -100,16 +100,16 @@
             <div class="px-2 border-r-2 color-border text-right">标签</div>
             <div class="article-tags-content">
                 
-                <a class="color-text-btn" href="/tags/Windows/" target="_blank">
-                    <div class="flex flex-row gap-1 items-center article-tag-item">Windows</div>
-                </a>
-                
                 <a class="color-text-btn" href="/tags/NeoVim/" target="_blank">
                     <div class="flex flex-row gap-1 items-center article-tag-item">NeoVim</div>
                 </a>
                 
                 <a class="color-text-btn" href="/tags/LazyVim/" target="_blank">
                     <div class="flex flex-row gap-1 items-center article-tag-item">LazyVim</div>
+                </a>
+                
+                <a class="color-text-btn" href="/tags/Windows/" target="_blank">
+                    <div class="flex flex-row gap-1 items-center article-tag-item">Windows</div>
                 </a>
                 
                 <a class="color-text-btn" href="/tags/markdown/" target="_blank">
@@ -176,23 +176,13 @@
             <!-- 直接包含生成器的生成内容，具体的结构由前端 JS 渲染 -->
             <html><head></head><body><h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>若安装 markdown 的 lsp 可能在编辑 md 文件时会出现 <code>error MD025</code> 字样的报错，其由于不允许出现多个一级标题而产生<br>（YAML Front Matter 中的 title 属性可能也会被解析成一个一级标题）</p>
 <p>本文介绍如何避免在编辑 markdown 文件时出现缓冲区中之前输入过的文本进入自动补全提示框中</p>
-<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><p>在 <code>$env:LOCALAPPDATA\nvim\lua\plugins\lint.lua</code> 中添加：</p>
-<pre class="shiki dark-plus"><div class="caption"><span>lint.lua | lang:lua</span></div><code><span class="line"><span style="color:#C586C0">return</span><span style="color:#D4D4D4"> {</span></span>
-<span class="line"><span style="color:#D4D4D4">	{</span></span>
-<span class="line"><span style="color:#CE9178">		"mfussenegger/nvim-lint"</span><span style="color:#D4D4D4">,</span></span>
-<span class="line"><span style="color:#9CDCFE">		opts</span><span style="color:#D4D4D4"> = {</span></span>
-<span class="line"><span style="color:#9CDCFE">			linters</span><span style="color:#D4D4D4"> = {</span></span>
-<span class="line"><span style="color:#D4D4D4">				[</span><span style="color:#CE9178">"markdownlint-cli2"</span><span style="color:#D4D4D4">] = {</span></span>
-<span class="line"><span style="color:#9CDCFE">					args</span><span style="color:#D4D4D4"> = { </span><span style="color:#CE9178">"--disable"</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">"MD025"</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">"--" </span><span style="color:#D4D4D4">},</span></span>
-<span class="line"><span style="color:#D4D4D4">				},</span></span>
-<span class="line"><span style="color:#D4D4D4">			},</span></span>
-<span class="line"><span style="color:#D4D4D4">		},</span></span>
-<span class="line"><span style="color:#D4D4D4">	},</span></span>
+<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><p>在你项目的根目录处添加 <code>.markdwonlint-cli2.jsonc</code> 文件：</p>
+<pre class="shiki dark-plus"><div class="caption"><span>.markdwonlint-cli2.jsonc | lang:jsonc</span></div><code><span class="line"><span style="color:#D4D4D4">{</span></span>
+<span class="line"><span style="color:#9CDCFE">    "config"</span><span style="color:#D4D4D4">: {</span></span>
+<span class="line"><span style="color:#9CDCFE">        "default"</span><span style="color:#D4D4D4">: </span><span style="color:#569CD6">true</span><span style="color:#D4D4D4">,</span></span>
+<span class="line"><span style="color:#9CDCFE">        "MD025"</span><span style="color:#D4D4D4">: </span><span style="color:#569CD6">false</span></span>
+<span class="line"><span style="color:#D4D4D4">    }</span></span>
 <span class="line"><span style="color:#D4D4D4">}</span></span></code></pre>
-
-<blockquote>
-<p>[!WRNING] 可能错误<br>由于在使用这个方法后似乎所有的错误检查都消失了，<br>该方法可能是错误的，可能会导致插件无法正确加载</p>
-</blockquote>
 </body></html>
         </article>
         
@@ -207,14 +197,14 @@
             </div>
             <div class="grid grid-cols-2 gap-2 lg:gap-8">
                 
-                <a href="/articles/2026/08/06/lazyvim-record/blink-md-buffer/" class="text-left color-text-btn border-2 rounded-md color-border">
+                <a href="/articles/2026/08/06/lazyvim-record/lazyvim-imselect/" class="text-left color-text-btn border-2 rounded-md color-border">
                     <div class="grid grid-cols-[max-content_1fr] gap-2 lg:gap-4 py-1 pl-1">
                         <svg class="w-6 h-6 lg:w-7 lg:h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="15 18 9 12 15 6" />
                         </svg>
                         <div class="grid grid-rows-[auto_auto] gap-1 lg:gap-2">
                             <div class="text-base lg:text-lg">上一篇文章</div>
-                            <div class="text-sm lg:text-base">LazyVim 禁用缓冲区内容提示</div>
+                            <div class="text-sm lg:text-base">LazyVim 里使用 im-select.exe</div>
                         </div>
                     </div>
                 </a>
@@ -255,10 +245,10 @@
                             <a href="/articles/2026/08/06/lazyvim-record/install-lazyvim/" class="toc-item"> 安装 LazyVim </a>
                             
                              
-                            <a href="/articles/2026/08/06/lazyvim-record/lazyvim-imselect/" class="toc-item"> LazyVim 里使用 im-select.exe </a>
+                            <a href="/articles/2026/08/06/lazyvim-record/blink-md-buffer/" class="toc-item"> LazyVim 禁用缓冲区内容提示 </a>
                             
                              
-                            <a href="/articles/2026/08/06/lazyvim-record/blink-md-buffer/" class="toc-item"> LazyVim 禁用缓冲区内容提示 </a>
+                            <a href="/articles/2026/08/06/lazyvim-record/lazyvim-imselect/" class="toc-item"> LazyVim 里使用 im-select.exe </a>
                             
                              
                             <span class="text-textPrimary-light dark:text-textPrimary-dark font-semibold"> 关闭 MD025 报错 </span>

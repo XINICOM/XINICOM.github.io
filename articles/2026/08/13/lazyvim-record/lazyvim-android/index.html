@@ -100,16 +100,16 @@
             <div class="px-2 border-r-2 color-border text-right">标签</div>
             <div class="article-tags-content">
                 
+                <a class="color-text-btn" href="/tags/Windows/" target="_blank">
+                    <div class="flex flex-row gap-1 items-center article-tag-item">Windows</div>
+                </a>
+                
                 <a class="color-text-btn" href="/tags/NeoVim/" target="_blank">
                     <div class="flex flex-row gap-1 items-center article-tag-item">NeoVim</div>
                 </a>
                 
                 <a class="color-text-btn" href="/tags/LazyVim/" target="_blank">
                     <div class="flex flex-row gap-1 items-center article-tag-item">LazyVim</div>
-                </a>
-                
-                <a class="color-text-btn" href="/tags/Windows/" target="_blank">
-                    <div class="flex flex-row gap-1 items-center article-tag-item">Windows</div>
                 </a>
                 
                 <a class="color-text-btn" href="/tags/Android/" target="_blank">
@@ -182,8 +182,9 @@
     <main class="w-full min-w-0 break-words">
         <article class="text-body color-text-content pb-16 pt-0" tocSource>
             <!-- 直接包含生成器的生成内容，具体的结构由前端 JS 渲染 -->
-            <html><head></head><body><h1 id="TL-DR"><a href="#TL-DR" class="headerlink" title="TL;DR"></a>TL;DR</h1><p>在 <code>$env:LOCALAPPDATA\nvim\lua\plugins\kotlin.lua</code> 下：</p>
-<pre class="shiki dark-plus"><div class="caption"><span>kotlin.lua | lang:lua</span></div><code><span class="line"><span style="color:#C586C0">return</span><span style="color:#D4D4D4"> {</span></span>
+            <html><head></head><body><h1 id="TL-DR"><a href="#TL-DR" class="headerlink" title="TL;DR"></a>TL;DR</h1><ol>
+<li><p>在 <code>$env:LOCALAPPDATA\nvim\lua\plugins\kotlin.lua</code> 下：</p>
+ <pre class="shiki dark-plus"><div class="caption"><span>kotlin.lua | lang:lua</span></div><code><span class="line"><span style="color:#C586C0">return</span><span style="color:#D4D4D4"> {</span></span>
 <span class="line"><span style="color:#D4D4D4">    {</span></span>
 <span class="line"><span style="color:#CE9178">        "AlexandrosAlexiou/kotlin.nvim"</span><span style="color:#D4D4D4">,</span></span>
 <span class="line"><span style="color:#9CDCFE">        ft</span><span style="color:#D4D4D4"> = { </span><span style="color:#CE9178">"kotlin"</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">"kt"</span><span style="color:#D4D4D4">, </span><span style="color:#CE9178">"kts" </span><span style="color:#D4D4D4">},</span></span>
@@ -197,11 +198,17 @@
 <span class="line"><span style="color:#D4D4D4">    },</span></span>
 <span class="line"><span style="color:#D4D4D4">}</span></span></code></pre>
 
-<p>这会启用 <code>AlexandrosAlexiou/kotlin.nvim</code> 插件</p>
+<p> 这会启用 <code>AlexandrosAlexiou/kotlin.nvim</code> 插件</p>
 <div class="callout important">
         <div class="callout-title">IMPORTANT</div>
         <div class="callout-content"><p>不要使用官方 <code>LazyExtras</code> 下的 <code>lang.kotlin</code> 插件</p></div>
     </div>
+</li>
+<li><p>在 <code>$env:LOCALAPPDATA\nvim\lua\config\options.lua</code> 中添加：</p>
+ <pre class="shiki dark-plus"><div class="caption"><span>options.lua(partial) | lang:lua</span></div><code><span class="line"><span style="color:#6A9955">-- Java 环境变量</span></span>
+<span class="line"><span style="color:#9CDCFE">vim</span><span style="color:#D4D4D4">.</span><span style="color:#4EC9B0">env</span><span style="color:#D4D4D4">.</span><span style="color:#4EC9B0">JAVA_HOME</span><span style="color:#D4D4D4"> = </span><span style="color:#CE9178">"${这里改成你自己的 jdk 的位置}"</span></span>
+<span class="line"><span style="color:#9CDCFE">vim</span><span style="color:#D4D4D4">.</span><span style="color:#4EC9B0">env</span><span style="color:#D4D4D4">.</span><span style="color:#4EC9B0">PATH</span><span style="color:#D4D4D4"> = </span><span style="color:#9CDCFE">vim</span><span style="color:#D4D4D4">.</span><span style="color:#4EC9B0">env</span><span style="color:#D4D4D4">.</span><span style="color:#4EC9B0">JAVA_HOME</span><span style="color:#D4D4D4"> .. </span><span style="color:#CE9178">"</span><span style="color:#D7BA7D">\\</span><span style="color:#CE9178">bin;" </span><span style="color:#D4D4D4">.. </span><span style="color:#9CDCFE">vim</span><span style="color:#D4D4D4">.</span><span style="color:#4EC9B0">env</span><span style="color:#D4D4D4">.</span><span style="color:#4EC9B0">PATH</span></span></code></pre></li>
+</ol>
 <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>本文介绍如何在 LazyVim 中使用 kotlin-lsp 以辅助开发 Android 开发，<br>由于上述要求比只使用 kotlin 要高，故而可能对仅 kotlin 开发有一定帮助</p>
 <p>值得注意的是辅助 Android 开发；开发除去编写代码的部分，可能使用 Android Studio 任然为最佳的选择</p>
 <h1 id="细节"><a href="#细节" class="headerlink" title="细节"></a>细节</h1><h2 id="必要的组件"><a href="#必要的组件" class="headerlink" title="必要的组件"></a>必要的组件</h2><p>如果你是从 Android Studio（后文简称 AS） 迁移到 LazyVim 里面的，或者你会同时使用上述两个软件，<br>那么最好使用 AS 来先行安装所有的环境，同时你可以尝试建立一个示例项目，测试能否在 AS 中正确的编译和部署</p>
@@ -241,14 +248,7 @@
 </div>
     </div>
 <h3 id="ktlint"><a href="#ktlint" class="headerlink" title="ktlint"></a>ktlint</h3><p>若是使用官方的 <code>lang.kotlin</code> 插件则会使用 <code>ktlint</code> 来作为格式化器和代码检查器，<br>然而此官方插件会让 Mason 下载 <code>kotlin_language_server</code> 作为语言服务器，考虑到这个 LSP 的限制，一般来说这不是我们想要的</p>
-<p>若你希望单独使用 <code>ktlint</code> 则可能会面临如下问题：</p>
-<pre class="shiki dark-plus"><code><span class="line"><span>Parser failed. Error message:</span></span>
-<span class="line"><span>...cal/nvim-data/lazy/nvim-lint/lua/lint/linters/ktlint.lua:8: Expected value but found invalid token at character 1</span></span>
-<span class="line"><span>Output from linter:</span></span>
-<span class="line"><span>'java'&lt;${由于编码问题导致的乱码}……</span></span></code></pre>
-
-<p>上述是因为 <code>ktlint</code> 需要 Java 来运行，而其会需要有对应的环境变量</p>
-<ol>
+<h2 id="JDK-具体安装"><a href="#JDK-具体安装" class="headerlink" title="JDK 具体安装"></a>JDK 具体安装</h2><ol>
 <li><p>下载 Java 的 JDK<br>可以访问 <a target="_blank" rel="noopener" href="https://adoptium.net/zh-CN/temurin/releases?version=17">Adoptium JDK V17</a> 进行下载</p>
 <div class="callout note">
         <div class="callout-title">JDK 版本要求</div>
@@ -269,9 +269,17 @@
     </div>
 </li>
 </ol>
-<h2 id="其他问题"><a href="#其他问题" class="headerlink" title="其他问题"></a>其他问题</h2><p>若是执意使用 <code>kotlin_language_server</code> 可能出现 Java JDK 问题，解决方法和上方解决 <code>ktlint</code> 的问题的方法一致</p>
-<pre class="shiki dark-plus"><div class="caption"><span>lsp.log | lang:txt</span></div><code><span class="line"><span>[START][2026-08-13 00:50:27] LSP logging initiated</span></span>
-<span class="line"><span>[ERROR][2026-08-13 00:50:27] ...gram Files/Neovim/share/nvim/runtime/lua/vim/lsp/log.lua:150 "rpc" "kotlin-language-server" "stderr" " \r\nERROR: JAVA_HOME is not set and no 'java' command could be found in your PATH. \r\n \r\nPlease set the JAVA_HOME variable in your environment to match the \r\nlocation of your Java installation. \r\n"</span></span></code></pre>
+<h3 id="可能相关的其他原因"><a href="#可能相关的其他原因" class="headerlink" title="可能相关的其他原因"></a>可能相关的其他原因</h3><ul>
+<li><p>若你希望单独使用 <code>ktlint</code> 则可能会面临 Java JDK 问题：</p>
+  <pre class="shiki dark-plus"><code><span class="line"><span>Parser failed. Error message:</span></span>
+<span class="line"><span>...cal/nvim-data/lazy/nvim-lint/lua/lint/linters/ktlint.lua:8: Expected value but found invalid token at character 1</span></span>
+<span class="line"><span>Output from linter:</span></span>
+<span class="line"><span>'java'&lt;${由于编码问题导致的乱码}……</span></span></code></pre>
+</li>
+<li><p>若是执意使用 <code>kotlin_language_server</code> 可能出现 Java JDK 问题：</p>
+  <pre class="shiki dark-plus"><div class="caption"><span>lsp.log | lang:txt</span></div><code><span class="line"><span>[START][2026-08-13 00:50:27] LSP logging initiated</span></span>
+<span class="line"><span>[ERROR][2026-08-13 00:50:27] ...gram Files/Neovim/share/nvim/runtime/lua/vim/lsp/log.lua:150 "rpc" "kotlin-language-server" "stderr" " \r\nERROR: JAVA_HOME is not set and no 'java' command could be found in your PATH. \r\n \r\nPlease set the JAVA_HOME variable in your environment to match the \r\nlocation of your Java installation. \r\n"</span></span></code></pre></li>
+</ul>
 </body></html>
         </article>
         
